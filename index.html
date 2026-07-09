@@ -3,383 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EquaVoce — E voi... lo sapevate?</title>
-  <style>
-    /* Reset e impostazioni base */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #faf6f8; /* Sfondo chiaro */
-      color: #1f1127;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 60px 20px;
-    }
-
-    /* TOP META: ENGINEERING X COMMUNITY */
-    .top-meta {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #b83253;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    /* CAPPELLO (Header) */
-    header {
-      text-align: center;
-      max-width: 800px;
-      margin-bottom: 50px;
-    }
-    header h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -1px;
-      margin-bottom: 25px;
-      color: #111827;
-    }
-    header h1 .highlight {
-      color: #106cfc; /* Blu reale */
-    }
-    header p {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #4b5563;
-      max-width: 650px;
-      margin: 0 auto;
-    }
-
-    /* FILTRI */
-    .filter-wrapper {
-      width: 100%;
-      max-width: 1100px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      border-bottom: 1px solid #e5e7eb;
-      padding-bottom: 20px;
-      margin-bottom: 40px;
-    }
-    .filter-label {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: #9ca3af;
-      text-transform: uppercase;
-    }
-    .filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .filter-btn {
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      color: #4b5563;
-      padding: 6px 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 0.8rem;
-      font-weight: 600;
-      transition: all 0.2s ease;
-    }
-    .filter-btn:hover {
-      background: #f9fafb;
-      border-color: #d1d5db;
-    }
-    .filter-btn.active {
-      background-color: #0252b3;
-      border-color: transparent;
-      color: #ffffff;
-    }
-
-    /* GRIGLIA DELLE CARD */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); /* Allargato a 360px per dare respiro al formato orizzontale */
-      gap: 30px;
-      width: 100%;
-      max-width: 1100px;
-      margin-bottom: 60px;
-    }
-
-    /* LA CARD (Contenitore 3D) */
-    .card {
-      background: transparent;
-      width: 100%;
-      aspect-ratio: 5 / 4; /* Proporzione orizzontale esatta (5:4) per combaciare con le tue immagini */
-      perspective: 1000px;
-      cursor: pointer;
-    }
-
-    /* Struttura interna della card che ruota */
-    .card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      transform-style: preserve-3d;
-    }
-
-    /* Rotazione al click */
-    .card.flipped .card-inner {
-      transform: rotateY(180deg);
-    }
-
-    /* Fronte e Retro con angoli netti */
-    .card-front, .card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-      border-radius: 0; /* Angoli netti */
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-      overflow: hidden;
-    }
-
-    /* FRONTE: Solo l'immagine orizzontale pulita */
-    .card-front {
-      background-color: transparent;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .card-front img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain; /* Mostra l'immagine intera senza mai tagliarla */
-      display: block;
-    }
-
-    /* RETRO: Struttura editoriale del post */
-    .card-back {
-      background-color: #1a0b20; /* Colore scuro all'interno per contrasto */
-      color: #ffffff;
-      transform: rotateY(180deg);
-      border: 1px solid rgba(218, 60, 108, 0.3);
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      text-align: left;
-    }
-
-    /* Front-Matter (Metadata) */
-    .post-header-meta {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 4px 10px;
-      font-size: 0.72rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-      padding-bottom: 8px;
-      margin-bottom: 8px;
-      color: rgba(255, 255, 255, 0.8);
-    }
-    .post-header-meta span {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    /* Corpo del post con scorrimento ottimizzato per formato orizzontale */
-    .post-body {
-      font-size: 0.8rem;
-      line-height: 1.45;
-      overflow-y: auto;
-      padding-right: 6px;
-      margin-bottom: 8px;
-      flex-grow: 1;
-      color: rgba(255, 255, 255, 0.9);
-    }
-    .post-body p {
-      margin-bottom: 10px;
-    }
-    
-    /* Box per differenziare Curiosità e Riflessione */
-    .post-section {
-      background: rgba(255, 255, 255, 0.04);
-      border-left: 2px solid #da3c6c;
-      padding: 8px 10px;
-      margin: 10px 0;
-    }
-    .post-section h4 {
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 4px;
-      color: #da3c6c;
-    }
-
-    .post-body::-webkit-scrollbar {
-      width: 4px;
-    }
-    .post-body::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    /* Footer con codice Spotify e bottone */
-    .post-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-      padding-top: 10px;
-    }
-
-    .mini-spotify-code {
-      height: 32px;
-      object-fit: contain;
-    }
-
-    .btn-spotify {
-      display: inline-flex;
-      align-items: center;
-      background-color: #1DB954;
-      color: white;
-      text-decoration: none;
-      padding: 5px 10px;
-      border-radius: 0;
-      font-size: 0.7rem;
-      font-weight: 700;
-      transition: background-color 0.2s;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .btn-spotify:hover {
-      background-color: #1ed760;
-    }
-
-    /* SEZIONE ABOUT THE AUTHOR (Chiaro, pulito) */
-    footer {
-      width: 100%;
-      max-width: 800px;
-      margin-top: 50px;
-      padding-top: 40px;
-      border-top: 1px solid #e5e7eb;
-      text-align: left;
-    }
-    .about-title {
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: #6b7280;
-      margin-bottom: 15px;
-    }
-    .about-text {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: #4b5563;
-    }
-
-    /* FOOTER DI LICENZA (Stile screenshot) */
-    .license-footer {
-      width: 100%;
-      max-width: 1100px;
-      margin-top: 80px;
-      border-top: 1px solid #e5e7eb;
-      padding-top: 25px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-    .license-left {
-      color: #111827;
-    }
-    .license-left span {
-      color: #b83253;
-      display: block;
-      margin-top: 5px;
-      font-size: 0.7rem;
-    }
-    .license-right {
-      display: flex;
-      gap: 25px;
-    }
-    .license-right a {
-      color: #4b5563;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .license-right a:hover {
-      color: #111827;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      header h1 { font-size: 2.2rem; }
-      .grid { grid-template-columns: 1fr; }
-      .license-footer { flex-direction: column; gap: 20px; text-align: center; }
-      .license-right { flex-direction: column; gap: 10px; }
-    }
-  </style>
+  <title>E voi... lo sapevate?</title>
+  <!-- Collegamento al file CSS esterno -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- TOP META: ENGINEERING X COMMUNITY -->
-  <div class="top-meta">Engineering x Community</div>
+  <!-- CONTENITORE CENTRATO PRINCIPALE -->
+  <div class="container">
 
-  <!-- CAPPELLO (INTRODUZIONE) -->
-  <header>
-    <h1>Riascoltare la musica di ieri e di oggi con la lente della <span class="highlight">parità di genere</span></h1>
-    <p>Equavoce analizza testi, melodie e contesti storici per promuovere una cultura musicale inclusiva e consapevole. Frammenti di canzoni, storie dimenticate e spunti di riflessione per guardare oltre il ritmo.</p>
-  </header>
+    <!-- TOP META: E VOI... LO SAPEVATE -->
+    <div class="top-meta">E voi... lo sapevate?</div>
 
-  <!-- SEZIONE BOTTONI DI FILTRO -->
-  <div class="filter-wrapper">
-    <div class="filter-label">Filtra per:</div>
-    <div class="filters">
-      <button class="filter-btn active" onclick="filterCards('all', event)">Tutte</button>
-      <button class="filter-btn" onclick="filterCards('ita', event)">Italiana</button>
-      <button class="filter-btn" onclick="filterCards('int', event)">Internazionale</button>
-      <button class="filter-btn" onclick="filterCards('70s', event)">Anni '70</button>
-      <button class="filter-btn" onclick="filterCards('80s', event)">Anni '80</button>
-      <button class="filter-btn" onclick="filterCards('pop', event)">Pop</button>
-      <button class="filter-btn" onclick="filterCards('rock', event)">Rock</button>
+    <!-- CAPPELLO (INTRODUZIONE) -->
+    <header>
+      <h1>Riascoltare la musica di ieri e di oggi con la lente della <span class="highlight">parità di genere</span></h1>
+      <p>Promuovere una cultura musicale inclusiva e consapevole. Frammenti di canzoni, storie dimenticate e spunti di riflessione per guardare oltre il ritmo.</p>
+    </header>
+
+    <!-- SEZIONE BOTTONI DI FILTRO -->
+    <div class="filter-wrapper">
+      <div class="filter-label">Filtra per:</div>
+      <div class="filters">
+        <button class="filter-btn active" onclick="filterCards('all', event)">Tutte</button>
+        <button class="filter-btn" onclick="filterCards('ita', event)">Italiana</button>
+        <button class="filter-btn" onclick="filterCards('int', event)">Internazionale</button>
+        <button class="filter-btn" onclick="filterCards('70s', event)">Anni '70</button>
+        <button class="filter-btn" onclick="filterCards('80s', event)">Anni '80</button>
+        <button class="filter-btn" onclick="filterCards('pop', event)">Pop</button>
+        <button class="filter-btn" onclick="filterCards('rock', event)">Rock</button>
+      </div>
     </div>
-  </div>
 
-  <!-- GRIGLIA DELLE CARD (Generata via JS) -->
-  <div class="grid" id="songs-grid">
-    <!-- Le card saranno inserite qui dinamicamente -->
-  </div>
+    <!-- GRIGLIA DELLE CARD -->
+    <div class="grid" id="songs-grid">
+      <!-- Le card saranno inserite qui dinamicamente -->
+    </div>
 
-  <!-- SEZIONE ABOUT THE AUTHOR -->
-  <footer>
-    <div class="about-title">Chi c'è dietro EquaVoce</div>
-    <p class="about-text">Ciao, sono l'autore di questa rubrica. Appassionato di musica e convinto che le parole che cantiamo ogni giorno portino con sé storie, significati e talvolta persino rivoluzioni invisibili. EquaVoce nasce per gioco e per curiosità: un piccolo spazio per riascoltare i classici (e non solo) con una consapevolezza diversa.</p>
+    <!-- SEZIONE ABOUT (Con immagine e titolo corretto) -->
+    <div class="about-section">
+      <div class="about-title">About</div>
+      <div class="about-container">
+        <div class="about-photo-wrapper">
+          <img class="about-photo" src="Marco Paleari.JPEG" alt="Marco Paleari">
+        </div>
+        <div class="about-text-content">
+          <p class="about-text">Ciao! Sono Marco Paleari e questo è un mio spazio personale nato per gioco e per curiosità. Sono convinto che le parole che cantiamo ogni giorno portino con sé storie, significati e talvolta persino rivoluzioni invisibili. Questo sito vuole essere un piccolo archivio indipendente per riascoltare i classici (e non solo) con una consapevolezza diversa.</p>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- FINE CONTENITORE CENTRATO -->
+
+  <!-- NUOVO FOOTER (Lilla, a larghezza intera) -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <h3 class="footer-title">Equavoce</h3>
+      <p class="footer-subtitle">
+        Un'iniziativa indipendente dedicata alla diffusione della cultura dell'uguaglianza attraverso la musica. Un progetto ideato e curato da Marco Paleari (Leader della DEI Community Equavoce in Engineering), aperto alla partecipazione di tutte le communities e di esterni.
+      </p>
+      
+      <!-- Link Interni -->
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Contatti</a>
+        <a href="#">Missione</a>
+      </div>
+      
+      <div class="footer-sublinks">
+        <a href="#">DEI Guidelines</a>
+      </div>
+
+      <!-- Link di contatto Social (Dati Marco Paleari) -->
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/paleari/" target="_blank">🔗 LinkedIn</a>
+        <a href="https://instagram.com/seejay1981" target="_blank">📸 Instagram</a>
+        <a href="https://x.com/mlcpaleari" target="_blank">🐦 Twitter/X</a>
+        <a href="https://wa.me/" target="_blank">💬 WhatsApp</a>
+      </div>
+      
+      <p class="footer-copyright">
+        © 2024 Equavoce. Un progetto di Engineering per l'uguaglianza.
+      </p>
+    </div>
   </footer>
-
-  <!-- LICENZA FOOTER -->
-  <div class="license-footer">
-    <div class="license-left">
-      Equavoce
-      <span>Licensed under MIT License</span>
-    </div>
-    <div class="license-right">
-      <a href="#">Missione</a>
-      <a href="#">Contatti</a>
-      <a href="https://engineering.it" target="_blank">engineering.it</a>
-    </div>
-  </div>
 
   <script>
     // Rotazione delle card al click
@@ -393,7 +100,6 @@
     // Caricamento dinamico dei dati dal file JSON
     async function loadSongs() {
       try {
-        // Aggiungiamo un parametro timestamp per forzare il browser a scaricare il JSON reale e bypassare la cache
         const response = await fetch('songs.json?v=' + Date.now());
         if (!response.ok) {
           throw new Error('Impossibile caricare il file JSON delle canzoni');
@@ -412,7 +118,6 @@
       grid.innerHTML = '';
 
       songs.forEach(song => {
-        // --- CONTROLLO DIFENSIVO (Se il JSON è vecchio o parziale, non genera mai 'undefined') ---
         const artist = song.artist || "Sconosciuto";
         const title = song.title || "Brano senza titolo";
         const year = song.year || "N/A";
@@ -421,7 +126,6 @@
         const spotifyCode = song.spotify_code || "";
         const spotifyLink = song.spotify_link || "#";
 
-        // Gestione delle nuove chiavi separate. Se mancano, usa come backup "song.content" o un testo vuoto
         const intro = song.intro || "";
         const curiosity = song.curiosity || "";
         const reflection = song.reflection || song.content || "Contenuto non disponibile.";
@@ -432,7 +136,6 @@
         card.setAttribute('data-tags', (song.tags || []).join(' '));
         card.setAttribute('onclick', 'toggleCard(this, event)');
 
-        // Generazione del corpo del post dinamico basato sui dati effettivamente disponibili
         let postBodyHTML = `<p>${intro}</p>`;
         
         if (curiosity) {
@@ -457,7 +160,6 @@
 
         postBodyHTML += `<p style="font-weight: bold; margin-top: 15px; font-size: 0.8rem; color: #da3c6c;">E voi... lo sapevate?</p>`;
 
-        // Costruzione della card
         card.innerHTML = `
           <div class="card-inner">
             <div class="card-front">
@@ -491,7 +193,7 @@
       event.currentTarget.classList.add('active');
 
       document.querySelectorAll('.card').forEach(card => {
-        card.classList.remove('flipped'); // Rigira sul fronte per evitare bug
+        card.classList.remove('flipped');
 
         const tags = (card.getAttribute('data-tags') || '').split(' ');
         
@@ -511,7 +213,6 @@
       });
     }
 
-    // Avvia il caricamento all'apertura del sito
     window.onload = loadSongs;
   </script>
 

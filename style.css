@@ -1,0 +1,430 @@
+/* Reset e impostazioni base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #faf6f8; /* Sfondo chiaro della pagina */
+  color: #1f1127;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 0 0 0; /* Rimosso padding laterale per permettere al footer di essere a larghezza intera */
+}
+
+/* CONTENITORE CENTRATO PER IL CONTENUTO PRINCIPALE */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1; /* Spinge il footer sul fondo della pagina */
+}
+
+/* TOP META: E VOI... LO SAPEVATE? */
+.top-meta {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #b83253;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* CAPPELLO (Header) */
+header {
+  text-align: center;
+  max-width: 800px;
+  margin-bottom: 50px;
+}
+
+header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin-bottom: 25px;
+  color: #111827;
+}
+
+header h1 .highlight {
+  color: #106cfc; /* Blu reale */
+}
+
+header p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4b5563;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* FILTRI */
+.filter-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+}
+
+.filter-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #9ca3af;
+  text-transform: uppercase;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-btn {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  color: #4b5563;
+  padding: 6px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+}
+
+.filter-btn.active {
+  background-color: #0252b3;
+  border-color: transparent;
+  color: #ffffff;
+}
+
+/* GRIGLIA DELLE CARD */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 30px;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+/* LA CARD (Contenitore 3D) */
+.card {
+  background: transparent;
+  width: 100%;
+  aspect-ratio: 5 / 4; /* Proporzione orizzontale esatta (5:4) per combaciare con le tue immagini */
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+/* Struttura interna della card che ruota */
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+}
+
+/* Rotazione al click */
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Fronte e Retro con angoli netti */
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 0;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+/* FRONTE: Solo l'immagine orizzontale pulita */
+.card-front {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* RETRO: Struttura del post */
+.card-back {
+  background-color: #1a0b20;
+  color: #ffffff;
+  transform: rotateY(180deg);
+  border: 1px solid rgba(218, 60, 108, 0.3);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+}
+
+/* Front-Matter (Metadata) */
+.post-header-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px 10px;
+  font-size: 0.72rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.post-header-meta span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Corpo del post con scorrimento */
+.post-body {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  overflow-y: auto;
+  padding-right: 6px;
+  margin-bottom: 8px;
+  flex-grow: 1;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.post-body p {
+  margin-bottom: 10px;
+}
+
+/* Box per differenziare Curiosità e Riflessione */
+.post-section {
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 2px solid #da3c6c;
+  padding: 8px 10px;
+  margin: 10px 0;
+}
+
+.post-section h4 {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+  color: #da3c6c;
+}
+
+.post-body::-webkit-scrollbar {
+  width: 4px;
+}
+
+.post-body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Footer con codice Spotify e bottone */
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 10px;
+}
+
+.mini-spotify-code {
+  height: 32px;
+  object-fit: contain;
+}
+
+.btn-spotify {
+  display: inline-flex;
+  align-items: center;
+  background-color: #1DB954;
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  transition: background-color 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.btn-spotify:hover {
+  background-color: #1ed760;
+}
+
+/* SEZIONE ABOUT (Sezione personale con foto) */
+.about-section {
+  width: 100%;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 40px;
+  margin-top: 40px;
+  text-align: left;
+}
+
+.about-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.about-photo-wrapper {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; /* Cerchio */
+  overflow: hidden;
+  border: 2px solid #e5e7eb;
+  transition: border-color 0.3s ease;
+}
+
+.about-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%); /* Bianco e nero di base */
+  transition: filter 0.4s ease;
+}
+
+/* Effetto Hover sulla foto */
+.about-photo-wrapper:hover {
+  border-color: #8c1d40;
+}
+
+.about-photo-wrapper:hover .about-photo {
+  filter: grayscale(0%);
+}
+
+.about-text-content {
+  flex-grow: 1;
+}
+
+.about-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+/* FOOTER (Stile lilla completo al 100%) */
+.site-footer {
+  width: 100%;
+  background-color: #ebdbf3; /* Sfondo lilla */
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-content {
+  max-width: 550px;
+  text-align: center;
+}
+
+.footer-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #8c1d40; /* Rosso prugna scuro */
+  margin-bottom: 15px;
+  letter-spacing: -0.5px;
+}
+
+.footer-subtitle {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #374151; /* Grigio scuro per la leggibilità */
+  margin-bottom: 25px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 12px;
+}
+
+.footer-sublinks {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 25px;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(140, 29, 64, 0.15);
+}
+
+.footer-links a, .footer-sublinks a, .footer-socials a {
+  color: #374151;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover, .footer-sublinks a:hover, .footer-socials a:hover {
+  color: #8c1d40;
+}
+
+.footer-copyright {
+  font-size: 0.8rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header h1 { font-size: 2.2rem; }
+  .grid { grid-template-columns: 1fr; }
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  .about-photo-wrapper {
+    margin: 0 auto;
+  }
+  .footer-links, .footer-socials { flex-direction: column; gap: 10px; }
+}
