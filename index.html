@@ -13,61 +13,92 @@
     }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: linear-gradient(180deg, #1d0f25 0%, #932252 60%, #da3c6c 100%);
-      color: #ffffff;
+      background-color: #faf6f8; /* Sfondo chiaro come da screenshot */
+      color: #1f1127;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 40px 20px;
+      padding: 60px 20px;
+    }
+
+    /* TOP HEADER: ENGINEERING X COMMUNITY */
+    .top-meta {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #b83253;
+      margin-bottom: 20px;
+      text-align: center;
     }
 
     /* CAPPELLO (Header) */
     header {
       text-align: center;
-      max-width: 700px;
-      margin-bottom: 30px;
+      max-width: 800px;
+      margin-bottom: 50px;
     }
     header h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 15px;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 25px;
+      color: #111827;
+    }
+    header h1 .highlight {
+      color: #106cfc; /* Il blu reale dello screenshot */
     }
     header p {
-      font-size: 1.1rem;
+      font-size: 1rem;
       line-height: 1.6;
-      color: rgba(255, 255, 255, 0.85);
+      color: #4b5563;
+      max-width: 650px;
+      margin: 0 auto;
     }
 
     /* FILTRI */
+    .filter-wrapper {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 20px;
+      margin-bottom: 40px;
+    }
+    .filter-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #9ca3af;
+      text-transform: uppercase;
+    }
     .filters {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 40px;
-      max-width: 800px;
+      gap: 8px;
     }
     .filter-btn {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: rgba(255, 255, 255, 0.9);
-      padding: 8px 18px;
-      border-radius: 0; /* Angoli netti */
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      color: #4b5563;
+      padding: 6px 16px;
+      border-radius: 6px; /* Leggermente smussati come nel mockup */
       cursor: pointer;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      transition: all 0.25s ease;
+      transition: all 0.2s ease;
     }
     .filter-btn:hover {
-      background: rgba(255, 255, 255, 0.18);
-      border-color: rgba(255, 255, 255, 0.3);
+      background: #f9fafb;
+      border-color: #d1d5db;
     }
     .filter-btn.active {
-      background: linear-gradient(135deg, #a82a61 0%, #da3c6c 100%);
+      background-color: #0252b3; /* Blu attivo del filtro nel mockup */
       border-color: transparent;
-      box-shadow: 0 4px 15px rgba(218, 60, 108, 0.4);
       color: #ffffff;
     }
 
@@ -85,10 +116,9 @@
     .card {
       background: transparent;
       width: 100%;
-      aspect-ratio: 5 / 4; /* Proporzione esatta 5:4 per combaciare perfettamente con le immagini */
+      aspect-ratio: 4 / 5; /* Formato verticale identico al mockup */
       perspective: 1000px;
       cursor: pointer;
-      transition: opacity 0.4s ease, transform 0.4s ease;
     }
 
     /* Struttura interna della card che ruota */
@@ -113,14 +143,14 @@
       height: 100%;
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
-      border-radius: 0; /* Angoli netti */
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      border-radius: 0; /* Angoli netti richiesti */
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
       overflow: hidden;
     }
 
-    /* FRONTE: Mostra l'immagine intera della copertina */
+    /* FRONTE: Solo l'immagine pulita */
     .card-front {
-      background-color: transparent;
+      background-color: #1d0f25;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -128,66 +158,90 @@
     .card-front img {
       width: 100%;
       height: 100%;
-      object-fit: contain; /* Evita qualsiasi tipo di taglio laterale o verticale */
+      object-fit: cover; /* Riempie perfettamente lo spazio della card */
       display: block;
     }
 
-    /* RETRO: Contenuto del post */
+    /* RETRO: Struttura editoriale del post */
     .card-back {
-      background-color: #1a0b20;
+      background-color: #1a0b20; /* Manteniamo il colore scuro solo dentro */
       color: #ffffff;
       transform: rotateY(180deg);
       border: 1px solid rgba(218, 60, 108, 0.3);
-      padding: 20px;
+      padding: 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       text-align: left;
     }
 
-    .post-header {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      padding-bottom: 8px;
-      margin-bottom: 10px;
+    /* Front-Matter (Metadata) */
+    .post-header-meta {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px 12px;
+      font-size: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .post-header-meta span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .post-title {
-      font-size: 1rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .post-content {
-      font-size: 0.85rem; /* Ottimizzato per tessere orizzontali */
+    /* Corpo del post con scorrimento */
+    .post-body {
+      font-size: 0.82rem;
       line-height: 1.5;
       overflow-y: auto;
-      padding-right: 5px;
-      margin-bottom: 10px;
+      padding-right: 6px;
+      margin-bottom: 12px;
       flex-grow: 1;
-      color: rgba(255, 255, 255, 0.85);
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .post-body p {
+      margin-bottom: 12px;
     }
     
-    .post-content::-webkit-scrollbar {
-      width: 4px;
+    /* Box per differenziare Curiosità e Riflessione */
+    .post-section {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 2.5px solid #da3c6c;
+      padding: 10px 12px;
+      margin: 14px 0;
     }
-    .post-content::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.25);
+    .post-section h4 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+      color: #da3c6c;
     }
 
+    .post-body::-webkit-scrollbar {
+      width: 4px;
+    }
+    .post-body::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Footer con codice Spotify e bottone */
     .post-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 10px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding-top: 12px;
     }
 
     .mini-spotify-code {
-      height: 35px;
+      height: 36px;
       object-fit: contain;
-      opacity: 0.9;
     }
 
     .btn-spotify {
@@ -197,71 +251,110 @@
       color: white;
       text-decoration: none;
       padding: 6px 12px;
-      border-radius: 0; /* Angoli netti sul pulsante */
-      font-size: 0.75rem;
+      border-radius: 0; /* Angoli netti sul bottone */
+      font-size: 0.72rem;
       font-weight: 700;
       transition: background-color 0.2s;
-      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     .btn-spotify:hover {
       background-color: #1ed760;
     }
 
-    /* SEZIONE ABOUT THE AUTHOR */
+    /* SEZIONE ABOUT THE AUTHOR (Chiaro, pulito) */
     footer {
       width: 100%;
-      max-width: 700px;
-      margin-top: 40px;
+      max-width: 800px;
+      margin-top: 50px;
       padding-top: 40px;
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-      text-align: center;
+      border-top: 1px solid #e5e7eb;
+      text-align: left;
     }
-
-    .about-box {
-      background: rgba(29, 15, 37, 0.6);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 30px;
-      border-radius: 0; /* Angoli netti */
-    }
-
-    .about-box h3 {
-      font-size: 1.3rem;
-      margin-bottom: 10px;
+    .about-title {
+      font-size: 0.85rem;
       font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #6b7280;
+      margin-bottom: 15px;
     }
-
-    .about-box p {
+    .about-text {
       font-size: 0.95rem;
       line-height: 1.6;
-      color: rgba(255, 255, 255, 0.8);
+      color: #4b5563;
+    }
+
+    /* FOOTER DI LICENZA (Stile screenshot) */
+    .license-footer {
+      width: 100%;
+      max-width: 1100px;
+      margin-top: 80px;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .license-left {
+      color: #111827;
+    }
+    .license-left span {
+      color: #b83253;
+      display: block;
+      margin-top: 5px;
+      font-size: 0.7rem;
+    }
+    .license-right {
+      display: flex;
+      gap: 25px;
+    }
+    .license-right a {
+      color: #4b5563;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .license-right a:hover {
+      color: #111827;
     }
 
     /* Responsive */
-    @media (max-width: 600px) {
-      header h1 { font-size: 2rem; }
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.2rem; }
       .grid { grid-template-columns: 1fr; }
+      .license-footer { flex-direction: column; gap: 20px; text-align: center; }
+      .license-right { flex-direction: column; gap: 10px; }
     }
   </style>
 </head>
 <body>
 
+  <!-- TOP META: ENGINEERING X COMMUNITY -->
+  <div class="top-meta">Engineering x Community</div>
+
   <!-- CAPPELLO (INTRODUZIONE) -->
   <header>
-    <h1>EquaVoce</h1>
-    <p>Riascoltare la musica di ieri e di oggi con la lente della parità di genere. Frammenti di canzoni, storie dimenticate e spunti di riflessione per guardare oltre il ritmo.</p>
+    <h1>Riascoltare la musica di ieri e di oggi con la lente della <span class="highlight">parità di genere</span></h1>
+    <p>Equavoce analizza testi, melodie e contesti storici per promuovere una cultura musicale inclusiva e consapevole. Frammenti di canzoni, storie dimenticate e spunti di riflessione per guardare oltre il ritmo.</p>
   </header>
 
   <!-- SEZIONE BOTTONI DI FILTRO -->
-  <div class="filters">
-    <button class="filter-btn active" onclick="filterCards('all', event)">Tutte</button>
-    <button class="filter-btn" onclick="filterCards('ita', event)">Italiana</button>
-    <button class="filter-btn" onclick="filterCards('int', event)">Internazionale</button>
-    <button class="filter-btn" onclick="filterCards('70s', event)">Anni '70</button>
-    <button class="filter-btn" onclick="filterCards('80s', event)">Anni '80</button>
-    <button class="filter-btn" onclick="filterCards('pop', event)">Pop</button>
-    <button class="filter-btn" onclick="filterCards('rock', event)">Rock</button>
+  <div class="filter-wrapper">
+    <div class="filter-label">Filtra per:</div>
+    <div class="filters">
+      <button class="filter-btn active" onclick="filterCards('all', event)">Tutte</button>
+      <button class="filter-btn" onclick="filterCards('ita', event)">Italiana</button>
+      <button class="filter-btn" onclick="filterCards('int', event)">Internazionale</button>
+      <button class="filter-btn" onclick="filterCards('70s', event)">Anni '70</button>
+      <button class="filter-btn" onclick="filterCards('80s', event)">Anni '80</button>
+      <button class="filter-btn" onclick="filterCards('pop', event)">Pop</button>
+      <button class="filter-btn" onclick="filterCards('rock', event)">Rock</button>
+    </div>
   </div>
 
   <!-- GRIGLIA DELLE CARD (Generata via JS) -->
@@ -271,11 +364,22 @@
 
   <!-- SEZIONE ABOUT THE AUTHOR -->
   <footer>
-    <div class="about-box">
-      <h3>Chi c'è dietro EquaVoce</h3>
-      <p>Ciao, sono l'autore di questa rubrica. Appassionato di musica e convinto che le parole che cantiamo ogni giorno portino con sé storie, significati e talvolta persino rivoluzioni invisibili. EquaVoce nasce per gioco e per curiosità: un piccolo spazio per riascoltare i classici (e non solo) con una consapevolezza diversa.</p>
-    </div>
+    <div class="about-title">Chi c'è dietro EquaVoce</div>
+    <p class="about-text">Ciao, sono l'autore di questa rubrica. Appassionato di musica e convinto che le parole che cantiamo ogni giorno portino con sé storie, significati e talvolta persino rivoluzioni invisibili. EquaVoce nasce per gioco e per curiosità: un piccolo spazio per riascoltare i classici (e non solo) con una consapevolezza diversa.</p>
   </footer>
+
+  <!-- LICENZA FOOTER DA MOCKUP -->
+  <div class="license-footer">
+    <div class="license-left">
+      Equavoce
+      <span>Licensed under MIT License</span>
+    </div>
+    <div class="license-right">
+      <a href="#">Missione</a>
+      <a href="#">Contatti</a>
+      <a href="https://engineering.it" target="_blank">engineering.it</a>
+    </div>
+  </div>
 
   <script>
     // Rotazione delle card al click
@@ -304,7 +408,7 @@
     // Rendering delle card nel DOM
     function renderCards(songs) {
       const grid = document.getElementById('songs-grid');
-      grid.innerHTML = ''; // Svuota la griglia se necessario
+      grid.innerHTML = '';
 
       songs.forEach(song => {
         const card = document.createElement('div');
@@ -315,14 +419,26 @@
         card.innerHTML = `
           <div class="card-inner">
             <div class="card-front">
-              <img src="${song.cover}" alt="${song.artist}">
+              <img src="${song.cover}" alt="${song.artist} - ${song.title}">
             </div>
             <div class="card-back">
-              <div class="post-header">
-                <div class="post-title">#${song.id} — ${song.artist} (${song.year})</div>
+              <div class="post-header-meta">
+                <span>👩🏻‍🎤 <strong>Artista:</strong> ${song.artist}</span>
+                <span>📅 <strong>Anno:</strong> ${song.year}</span>
+                <span style="grid-column: span 2;">💿 <strong>Album:</strong> ${song.album}</span>
               </div>
-              <div class="post-content">
-                ${song.content}
+              <div class="post-body">
+                <p>${song.intro}</p>
+                <div class="post-section">
+                  <h4>💡 Curiosità</h4>
+                  <p>${song.curiosity}</p>
+                </div>
+                <div class="post-section">
+                  <h4>🔍 Riflessione</h4>
+                  <p>${song.reflection}</p>
+                </div>
+                <p>🎧 ${song.outro}</p>
+                <p style="font-weight: bold; margin-top: 15px; font-size: 0.8rem; color: #da3c6c;">E voi... lo sapevate?</p>
               </div>
               <div class="post-footer">
                 <img class="mini-spotify-code" src="${song.spotify_code}" alt="Spotify Code">
@@ -337,15 +453,13 @@
 
     // Gestione dei filtri
     function filterCards(tag, event) {
-      // Aggiorna lo stato visivo dei pulsanti
       document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.classList.remove('active');
       });
       event.currentTarget.classList.add('active');
 
-      // Applica il filtro alle card
       document.querySelectorAll('.card').forEach(card => {
-        card.classList.remove('flipped'); // Rigira sul fronte per sicurezza
+        card.classList.remove('flipped'); // Rigira sul fronte per evitare bug
 
         const tags = card.getAttribute('data-tags').split(' ');
         

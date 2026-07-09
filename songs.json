@@ -4,76 +4,104 @@
     "artist": "Vasco Rossi",
     "title": "...E poi mi parli di una vita insieme",
     "year": 1978,
+    "album": "...Ma cosa vuoi che sia una canzone...",
     "cover": "copertine/2026-06-29_vasco_rossi_e_poi_mi_parli_di_una_vita_i.png",
     "spotify_code": "spotify_codes/vasco_rossi_e_poi_mi_parli_di_una_vita_i_spotify_code.png",
     "spotify_link": "https://open.spotify.com/track/5xtgvrDTc5dv5DsyXrd4Jg",
     "tags": ["ita", "70s", "rock"],
-    "content": "<p>Questo weekend, riascoltando una vecchia canzone di Vasco Rossi, mi sono fermato su un testo che conoscevo da anni... ma che non avevo mai davvero ascoltato.</p><br><p>Non lo definirei \"una canzone femminista\" in senso assoluto e Vasco, nonostante \"Sally\", ancora di meno e invece...</p><br><p>Riascoltato oggi, leggo chiaramente un invito a ribellarsi ai ruoli imposti: a non essere \"la donna da sposare\", a trovare la propria voce, a reagire alle aspettative della famiglia e della società.</p>"
+    "intro": "Questo weekend, riascoltando una vecchia canzone di Vasco Rossi, mi sono fermato su un testo che conoscevo da anni... ma che non avevo mai davvero ascoltato.",
+    "curiosity": "Il brano uscì come singolo prima ancora dell'album e, nonostante abbia quasi cinquant'anni, Vasco non lo ha mai portato dal vivo.",
+    "reflection": "Non lo definirei \"una canzone femminista\" in senso assoluto e Vasco, nonostante \"Sally\", ancora di meno e invece... Riascoltato oggi, leggo chiaramente un invito a ribellarsi ai ruoli imposti: a non essere \"la donna da sposare\", a trovare la propria voce, a reagire alle aspettative della famiglia e della società. È sorprendente pensare che queste parole siano state scritte nel 1978.",
+    "outro": "Se avete cinque minuti, provate ad ascoltarla (o riascoltarla) e ditemi: oggi voi come la interpretereste? Se l'idea vi piace, questa potrebbe diventare una piccola rubrica di EquaVoce: canzoni da riascoltare con la lente della parità di genere."
   },
   {
     "id": 2,
     "artist": "Kate Bush",
     "title": "Running Up That Hill",
     "year": 1985,
+    "album": "Hounds of Love",
     "cover": "copertine/2026-07-06_kate_bush_running_up_that_hill.png",
     "spotify_code": "spotify_codes/kate_bush_running_up_that_hill_spotify_code.png",
     "spotify_link": "https://open.spotify.com/track/1PtQJZVZIdWIYdARpZRDFO",
     "tags": ["int", "80s", "pop"],
-    "content": "<p>E se due persone che si amano potessero scambiarsi di posto per capire davvero cosa prova l'altra?</p><br><p>\"And I'd get Him to swap our places.\" Vorrei che ci scambiassimo di posto. Non per cambiare la relazione, ma per cambiare il punto di vista.</p><br><p>Riascoltata oggi, mi sembra quasi un inno all'empatia: il riconoscimento che uomini e donne possono vivere la stessa relazione in modi profondamente diversi e che comprenderlo richiede uno sforzo.</p>"
+    "intro": "Probabilmente l'avete ascoltata decine di volte. Forse l'avete riscoperta grazie a Stranger Things. Oppure, se avete qualche anno in più, come me, nella splendida reinterpretazione dei Placebo. Eppure scommetto che molti non hanno mai pensato davvero al significato del testo. Oggi volevo parlarvi di...",
+    "curiosity": "Il titolo originale era Running Up That Hill (A Deal with God). La casa discografica preferì accorciarlo, temendo che il riferimento a Dio potesse limitarne la programmazione radiofonica. Nel 2022, grazie a Stranger Things, il brano è tornato in vetta alle classifiche, quasi quarant'anni dopo la sua pubblicazione.",
+    "reflection": "Kate Bush ha spiegato che nasce da una domanda: E se due persone che si amano potessero scambiarsi di posto per capire davvero cosa prova l'altra? Per questo il verso più famoso (If I only could, I'd make a deal with God...) non parla di sacrificio. Parla del desiderio di fare l'impossibile pur di comprendere davvero l'altra persona. E subito dopo arriva il passaggio che cambia completamente la prospettiva: And I'd get Him to swap our places. \"Vorrei che ci scambiassimo di posto.\" Non per cambiare la relazione, ma per cambiare il punto di vista. Riascoltata oggi, mi sembra quasi un inno all'empatia: il riconoscimento che uomini e donne possono vivere la stessa relazione in modi profondamente diversi e che comprenderlo richiede uno sforzo. Quella \"salita\" (running up that hill) diventa la metafora della fatica necessaria per uscire dalla propria prospettiva e provare, davvero, a vedere il mondo con gli occhi dell'altra persona.",
+    "outro": "Se avete cinque minuti, riascoltatela pensando a questa chiave di lettura."
   },
   {
     "id": 3,
     "artist": "Raffaella Carrà",
     "title": "Rumore",
     "year": 1974,
+    "album": "Raffaella Carrà",
     "cover": "copertine/2026-07-13_raffaella_carra_rumore.png",
     "spotify_code": "spotify_codes/raffaella_carra_rumore_spotify_code.png",
     "spotify_link": "https://open.spotify.com/track/1YAs3Z89zQfM6p1zM6M7vF",
     "tags": ["ita", "70s", "pop"],
-    "content": "<p>Siamo nei primi anni '70. La televisione italiana è un luogo ordinato: i corpi femminili sono raccontati dentro un'idea precisa di misura. Nella musica leggera, le canzoni parlano spesso di attesa, amore subito e perdita.</p><br><p>Poi entra in scena Raffaella Carrà. Il corpo diventa parte del linguaggio: movimento ed energia che rompono la grammatica sobria dell'epoca. E dentro questo contesto arriva \"Rumore\".</p><br><p>Riascoltata oggi, emerge una frase che cambia il tono di tutto: <em>\"Ho deciso che faccio da me\"</em>. Non è solo autonomia pratica, è autonomia narrativa. Il passaggio da una storia subita a una storia scelta.</p>"
+    "intro": "Siamo nei primi anni '70. La televisione italiana è un luogo ordinato: i corpi femminili sono raccontati dentro un'idea precisa di misura ed eleganza. Nella musica leggera, le canzoni parlano spesso di attesa, amore subito e perdita.",
+    "curiosity": "In quegli stessi anni risuonano brani dove la storia resta quella di un sentimento vissuto passivamente. Poi, lentamente, entra in scena una giovane artista che non si limita a cantare, ma occupa fisicamente lo spazio televisivo con energia e movimento.",
+    "reflection": "Riascoltata oggi, emerge una frase che cambia il tono di tutto: \"Ho deciso che faccio da me\". Non è solo autonomia pratica, è autonomia narrativa. Il passaggio da una storia che accade a una storia che viene scelta. In questo gesto c'è qualcosa di profondamente nuovo per l'epoca: non reagire al vuoto, ma interromperlo.",
+    "outro": "Se avete qualche minuto, riascoltatela chiedendovi: quanto di quella \"leggerezza pop\" era in realtà un modo molto concreto di cambiare la presenza femminile sulla scena?"
   },
   {
     "id": 4,
     "artist": "The Cure",
     "title": "Boy's Don't Cry",
     "year": 1979,
+    "album": "Three Imaginary Boys",
     "cover": "copertine/2026-07-15_the_cure_boy_s_don_t_cry.png",
     "spotify_code": "spotify_codes/the_cure_boy_s_don_t_cry_spotify_code.png",
     "spotify_link": "https://open.spotify.com/track/13f64gVqj9A8vq7W9YmYVf",
     "tags": ["int", "70s", "rock"],
-    "content": "<p>Dietro il ritmo incalzante e apparentemente allegro di questa pietra miliare della New Wave si nasconde una riflessione importante sulla vulnerabilità emotiva maschile.</p><br><p>Il testo descrive la sofferenza di un ragazzo che, dopo una rottura, cerca di nascondere le proprie lacrime perché \"i ragazzi non piangono\". Un condizionamento sociale che impone agli uomini di reprimere la tristezza e mostrare solo forza.</p><br><p>Robert Smith ha raccontato come la canzone sia nata proprio per sfidare questo stereotipo, rivendicando il diritto di esprimere la propria fragilità.</p>"
+    "intro": "Probabilmente l'avete ballata in ogni festa indie, trascinati dal suo ritmo incalzante e allegro. Ma vi siete mai soffermati sul paradosso che si nasconde tra le sue note?",
+    "curiosity": "Robert Smith ha ammesso che la canzone è nata da una frustrazione personale: crescendo in Inghilterra negli anni '60 e '70, ai ragazzi veniva insegnato a non mostrare mai alcuna debolezza o emozione in pubblico.",
+    "reflection": "Il brano racconta la fine di una storia e il dolore di un ragazzo che, pur di non apparire debole o \"poco uomo\", finge indifferenza e ride per nascondere le lacrime: \"I try to laugh about it, hiding the tears in my eyes, 'cause boys don't cry\". È una delle prime e più potenti canzoni pop a denunciare la gabbia emotiva della mascolinità tossica, in cui gli uomini sono costretti a reprimere la tristezza.",
+    "outro": "Riascoltatela oggi come un invito a ricordare che esprimere la propria vulnerabilità non è mai una debolezza, ma un atto di liberazione."
   },
   {
     "id": 5,
     "artist": "Miley Cyrus",
     "title": "Flowers",
     "year": 2023,
+    "album": "Endless Summer Vacation",
     "cover": "copertine/2026-07-20_miley_cyrus_flowers.png",
     "spotify_code": "spotify_codes/miley_cyrus_flowers_spotify_code.png",
     "spotify_link": "https://open.spotify.com/track/0yLdNVWF3Srea0uzk55zFn",
     "tags": ["int", "pop"],
-    "content": "<p>Il brano nasce come risposta diretta a \"When I Was Your Man\" di Bruno Mars, dove lui canta che avrebbe dovuto \"comprarle dei fiori\". La risposta di Miley è semplice e potentissima: <em>\"I can buy myself flowers\"</em>.</p><br><p>Non è una provocazione, è una dichiarazione di autonomia. Il punto è un cambio di prospettiva: non aspettare che qualcun altro colmi uno spazio che puoi imparare ad occupare da sola.</p><br><p>Riascoltata così, Flowers non è solo una canzone post-rottura, ma un manifesto sull'autosufficienza emotiva raccontata in chiave pop.</p>"
+    "intro": "Quasi impossibile non averla sentita. È stata ovunque: radio, playlist, social e video. Ma vi siete mai fermati a pensare a cosa sta davvero dicendo?",
+    "curiosity": "Il brano nasce anche come risposta diretta a \"When I Was Your Man\" di Bruno Mars, dove lui canta che, per salvare la relazione, avrebbe dovuto \"comprarle dei fiori\".",
+    "reflection": "La risposta di Miley è semplice e potentissima: \"I can buy myself flowers. I can take myself dancing. Yeah, I can love me better than you can\". Non è una provocazione, è una dichiarazione di autonomia. Il punto è un cambio di prospettiva: non aspettare che qualcun altro colmi uno spazio che puoi imparare a occupare da sola. È una canzone sull'autosufficienza emotiva raccontata in modo pop.",
+    "outro": "Riascoltatela con questa chiave. Per voi è solo una canzone sull'ex o qualcosa di diverso?"
   },
   {
     "id": 6,
     "artist": "Dolly Parton",
     "title": "9 to 5",
     "year": 1980,
+    "album": "9 to 5 (Soundtrack)",
     "cover": "copertine/2026-07-27_dolly_parton_9_to_5.png",
     "spotify_code": "spotify_codes/dolly_parton_9_to_5_spotify_code.png",
     "spotify_link": "https://open.spotify.com/track/49W6Z98Z6X7m8v8X",
     "tags": ["int", "80s", "pop"],
-    "content": "<p>\"9 to 5\" non è una semplice canzone dal ritmo allegro. È una rivolta. Scritta per l'omonimo film con Jane Fonda, fotografa una mattina in cui tutto è affrettato, dove il corpo è al servizio del tempo e del lavoro.</p><br><p>La canzone affronta temi complessi: disparità salariale, aspettative non dette e carico mentale. Nel 1980, quando è stata scritta, queste parole non avevano ancora un nome comune nel dibattito pubblico.</p><br><p>Dolly Parton riesce a far passare un messaggio politico forte usando l'ironia e un'energia travolgente, rendendo la critica sociale estremamente ascoltabile.</p>"
+    "intro": "Quanti di voi ascoltano questa canzone canticchiandola, senza accorgersi di quello che il testo sta davvero dicendo? È molto più di una traccia allegra.",
+    "curiosity": "Dolly Parton compose il ritmo originale della canzone battendo tra loro le proprie unghie finte come percussione durante le pause sul set del film.",
+    "reflection": "\"Tumble outta bed and stumble to the kitchen, pour myself a cup of ambition\" — così inizia tutto. È la fotografia di una mattina in cui tutto è affrettato, dove il corpo è al servizio del tempo e dove una lavoratrice riceve ingratitudine facendo il doppio del lavoro. Aspettative non dette, disparità salariale, carico mentale. Nel 1980 queste parole non avevano ancora un nome comune, ma la canzone le rendeva accessibili a tutti grazie a brio, ironia ed energia.",
+    "outro": "Riascoltatela oggi: vi sembra una battuta leggera o una critica sociale ancora molto attuale?"
   },
   {
     "id": 7,
     "artist": "Lucio Battisti",
     "title": "Una donna per amico",
     "year": 1978,
+    "album": "Una donna per amico",
     "cover": "copertine/2026-07-31_lucio_battisti_una_donna_per_amico.png",
     "spotify_code": "spotify_codes/lucio_battisti_una_donna_per_amico_spotify_code.png",
     "spotify_link": "https://open.spotify.com/track/14lv019QQEhOBzJXBccGgjM",
     "tags": ["ita", "70s", "pop"],
-    "content": "<p>Scritta da Mogol e Battisti, questa canzone affronta un tema rivoluzionario per la musica italiana dell'epoca: l'amicizia sincera, profonda e del tutto platonica tra un uomo e una donna.</p><br><p>In una società che tendeva a inquadrare il rapporto uomo-donna quasi esclusivamente entro gli schemi dell'amore romantico o del matrimonio, Battisti canta le dinamiche di una complicità reale, fatta di confidenze, supporto reciproco e qualche inevitabile gelosia, ma senza implicazioni sentimentali.</p><br><p>Un brano moderno che, sotto un arrangiamento pop impeccabile registrato in Inghilterra, celebra la parità e l'intesa umana oltre i ruoli tradizionali.</p>"
+    "intro": "In un panorama musicale dominato da canzoni d'amore struggenti o drammatiche, Battisti e Mogol fecero uscire un brano dal ritmo travolgente che scardinava un tabù sociale.",
+    "curiosity": "L'album omonimo fu registrato interamente in Inghilterra con musicisti internazionali, dando al brano quel sound tipicamente funk e moderno che ancora oggi ci fa muovere a tempo.",
+    "reflection": "Il testo affronta un concetto rivoluzionario per l'epoca: l'amicizia profonda, sincera e del tutto platonica tra un uomo e una donna. In un'Italia che faticava a concepire i rapporti di genere al di fuori dell'amore romantico o del matrimonio, il brano celebra la complicità pura, abbattendo l'idea che generi diversi non possano semplicemente allearsi alla pari.",
+    "outro": "Un classico intramontabile che ci ricorda come l'intesa e il rispetto reciproco vadano oltre i ruoli tradizionali."
   }
 ]
