@@ -13,7 +13,7 @@
     }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #faf6f8; /* Sfondo chiaro come da screenshot */
+      background-color: #faf6f8; /* Sfondo chiaro */
       color: #1f1127;
       min-height: 100vh;
       display: flex;
@@ -22,7 +22,7 @@
       padding: 60px 20px;
     }
 
-    /* TOP HEADER: ENGINEERING X COMMUNITY */
+    /* TOP META: ENGINEERING X COMMUNITY */
     .top-meta {
       font-size: 0.75rem;
       font-weight: 700;
@@ -48,7 +48,7 @@
       color: #111827;
     }
     header h1 .highlight {
-      color: #106cfc; /* Il blu reale dello screenshot */
+      color: #106cfc; /* Blu reale */
     }
     header p {
       font-size: 1rem;
@@ -86,7 +86,7 @@
       border: 1px solid #e5e7eb;
       color: #4b5563;
       padding: 6px 16px;
-      border-radius: 6px; /* Leggermente smussati come nel mockup */
+      border-radius: 6px;
       cursor: pointer;
       font-size: 0.8rem;
       font-weight: 600;
@@ -97,7 +97,7 @@
       border-color: #d1d5db;
     }
     .filter-btn.active {
-      background-color: #0252b3; /* Blu attivo del filtro nel mockup */
+      background-color: #0252b3;
       border-color: transparent;
       color: #ffffff;
     }
@@ -105,7 +105,7 @@
     /* GRIGLIA DELLE CARD */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); /* Allargato a 360px per dare respiro al formato orizzontale */
       gap: 30px;
       width: 100%;
       max-width: 1100px;
@@ -116,7 +116,7 @@
     .card {
       background: transparent;
       width: 100%;
-      aspect-ratio: 4 / 5; /* Formato verticale identico al mockup */
+      aspect-ratio: 5 / 4; /* Proporzione orizzontale esatta (5:4) per combaciare con le tue immagini */
       perspective: 1000px;
       cursor: pointer;
     }
@@ -143,14 +143,14 @@
       height: 100%;
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
-      border-radius: 0; /* Angoli netti richiesti */
+      border-radius: 0; /* Angoli netti */
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
       overflow: hidden;
     }
 
-    /* FRONTE: Solo l'immagine pulita */
+    /* FRONTE: Solo l'immagine orizzontale pulita */
     .card-front {
-      background-color: #1d0f25;
+      background-color: transparent;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -158,17 +158,17 @@
     .card-front img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Riempie perfettamente lo spazio della card */
+      object-fit: contain; /* Mostra l'immagine intera senza mai tagliarla */
       display: block;
     }
 
     /* RETRO: Struttura editoriale del post */
     .card-back {
-      background-color: #1a0b20; /* Manteniamo il colore scuro solo dentro */
+      background-color: #1a0b20; /* Colore scuro all'interno per contrasto */
       color: #ffffff;
       transform: rotateY(180deg);
       border: 1px solid rgba(218, 60, 108, 0.3);
-      padding: 24px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -179,11 +179,11 @@
     .post-header-meta {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 6px 12px;
-      font-size: 0.75rem;
+      gap: 4px 10px;
+      font-size: 0.72rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-      padding-bottom: 12px;
-      margin-bottom: 12px;
+      padding-bottom: 8px;
+      margin-bottom: 8px;
       color: rgba(255, 255, 255, 0.8);
     }
     .post-header-meta span {
@@ -192,33 +192,33 @@
       text-overflow: ellipsis;
     }
 
-    /* Corpo del post con scorrimento */
+    /* Corpo del post con scorrimento ottimizzato per formato orizzontale */
     .post-body {
-      font-size: 0.82rem;
-      line-height: 1.5;
+      font-size: 0.8rem;
+      line-height: 1.45;
       overflow-y: auto;
       padding-right: 6px;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       flex-grow: 1;
       color: rgba(255, 255, 255, 0.9);
     }
     .post-body p {
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     
     /* Box per differenziare Curiosità e Riflessione */
     .post-section {
-      background: rgba(255, 255, 255, 0.05);
-      border-left: 2.5px solid #da3c6c;
-      padding: 10px 12px;
-      margin: 14px 0;
+      background: rgba(255, 255, 255, 0.04);
+      border-left: 2px solid #da3c6c;
+      padding: 8px 10px;
+      margin: 10px 0;
     }
     .post-section h4 {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       color: #da3c6c;
     }
 
@@ -236,11 +236,11 @@
       align-items: center;
       gap: 10px;
       border-top: 1px solid rgba(255, 255, 255, 0.15);
-      padding-top: 12px;
+      padding-top: 10px;
     }
 
     .mini-spotify-code {
-      height: 36px;
+      height: 32px;
       object-fit: contain;
     }
 
@@ -250,9 +250,9 @@
       background-color: #1DB954;
       color: white;
       text-decoration: none;
-      padding: 6px 12px;
-      border-radius: 0; /* Angoli netti sul bottone */
-      font-size: 0.72rem;
+      padding: 5px 10px;
+      border-radius: 0;
+      font-size: 0.7rem;
       font-weight: 700;
       transition: background-color 0.2s;
       text-transform: uppercase;
@@ -368,7 +368,7 @@
     <p class="about-text">Ciao, sono l'autore di questa rubrica. Appassionato di musica e convinto che le parole che cantiamo ogni giorno portino con sé storie, significati e talvolta persino rivoluzioni invisibili. EquaVoce nasce per gioco e per curiosità: un piccolo spazio per riascoltare i classici (e non solo) con una consapevolezza diversa.</p>
   </footer>
 
-  <!-- LICENZA FOOTER DA MOCKUP -->
+  <!-- LICENZA FOOTER -->
   <div class="license-footer">
     <div class="license-left">
       Equavoce
@@ -393,7 +393,8 @@
     // Caricamento dinamico dei dati dal file JSON
     async function loadSongs() {
       try {
-        const response = await fetch('songs.json');
+        // Aggiungiamo un parametro timestamp per forzare il browser a scaricare il JSON reale e bypassare la cache
+        const response = await fetch('songs.json?v=' + Date.now());
         if (!response.ok) {
           throw new Error('Impossibile caricare il file JSON delle canzoni');
         }
@@ -405,44 +406,75 @@
       }
     }
 
-    // Rendering delle card nel DOM
+    // Rendering delle card nel DOM (con controllo difensivo anti-undefined)
     function renderCards(songs) {
       const grid = document.getElementById('songs-grid');
       grid.innerHTML = '';
 
       songs.forEach(song => {
+        // --- CONTROLLO DIFENSIVO (Se il JSON è vecchio o parziale, non genera mai 'undefined') ---
+        const artist = song.artist || "Sconosciuto";
+        const title = song.title || "Brano senza titolo";
+        const year = song.year || "N/A";
+        const album = song.album || "N/A";
+        const cover = song.cover || "";
+        const spotifyCode = song.spotify_code || "";
+        const spotifyLink = song.spotify_link || "#";
+
+        // Gestione delle nuove chiavi separate. Se mancano, usa come backup "song.content" o un testo vuoto
+        const intro = song.intro || "";
+        const curiosity = song.curiosity || "";
+        const reflection = song.reflection || song.content || "Contenuto non disponibile.";
+        const outro = song.outro || "";
+
         const card = document.createElement('div');
         card.className = 'card';
-        card.setAttribute('data-tags', song.tags.join(' '));
+        card.setAttribute('data-tags', (song.tags || []).join(' '));
         card.setAttribute('onclick', 'toggleCard(this, event)');
 
+        // Generazione del corpo del post dinamico basato sui dati effettivamente disponibili
+        let postBodyHTML = `<p>${intro}</p>`;
+        
+        if (curiosity) {
+          postBodyHTML += `
+            <div class="post-section">
+              <h4>💡 Curiosità</h4>
+              <p>${curiosity}</p>
+            </div>
+          `;
+        }
+        
+        postBodyHTML += `
+          <div class="post-section">
+            <h4>🔍 Riflessione</h4>
+            <p>${reflection}</p>
+          </div>
+        `;
+
+        if (outro) {
+          postBodyHTML += `<p>🎧 ${outro}</p>`;
+        }
+
+        postBodyHTML += `<p style="font-weight: bold; margin-top: 15px; font-size: 0.8rem; color: #da3c6c;">E voi... lo sapevate?</p>`;
+
+        // Costruzione della card
         card.innerHTML = `
           <div class="card-inner">
             <div class="card-front">
-              <img src="${song.cover}" alt="${song.artist} - ${song.title}">
+              <img src="${cover}" alt="${artist} - ${title}">
             </div>
             <div class="card-back">
               <div class="post-header-meta">
-                <span>👩🏻‍🎤 <strong>Artista:</strong> ${song.artist}</span>
-                <span>📅 <strong>Anno:</strong> ${song.year}</span>
-                <span style="grid-column: span 2;">💿 <strong>Album:</strong> ${song.album}</span>
+                <span>👩🏻‍🎤 <strong>Artista:</strong> ${artist}</span>
+                <span>📅 <strong>Anno:</strong> ${year}</span>
+                <span style="grid-column: span 2;">💿 <strong>Album:</strong> ${album}</span>
               </div>
               <div class="post-body">
-                <p>${song.intro}</p>
-                <div class="post-section">
-                  <h4>💡 Curiosità</h4>
-                  <p>${song.curiosity}</p>
-                </div>
-                <div class="post-section">
-                  <h4>🔍 Riflessione</h4>
-                  <p>${song.reflection}</p>
-                </div>
-                <p>🎧 ${song.outro}</p>
-                <p style="font-weight: bold; margin-top: 15px; font-size: 0.8rem; color: #da3c6c;">E voi... lo sapevate?</p>
+                ${postBodyHTML}
               </div>
               <div class="post-footer">
-                <img class="mini-spotify-code" src="${song.spotify_code}" alt="Spotify Code">
-                <a href="${song.spotify_link}" target="_blank" class="btn-spotify">Ascolta</a>
+                <img class="mini-spotify-code" src="${spotifyCode}" alt="Spotify Code">
+                <a href="${spotifyLink}" target="_blank" class="btn-spotify">Ascolta</a>
               </div>
             </div>
           </div>
@@ -461,7 +493,7 @@
       document.querySelectorAll('.card').forEach(card => {
         card.classList.remove('flipped'); // Rigira sul fronte per evitare bug
 
-        const tags = card.getAttribute('data-tags').split(' ');
+        const tags = (card.getAttribute('data-tags') || '').split(' ');
         
         if (tag === 'all' || tags.includes(tag)) {
           card.style.display = 'block';
