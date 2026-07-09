@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1,
+    "artist": "Vasco Rossi",
+    "title": "...E poi mi parli di una vita insieme",
+    "year": 1978,
+    "cover": "copertine/2026-06-29_vasco_rossi_e_poi_mi_parli_di_una_vita_i.png",
+    "spotify_code": "spotify_codes/vasco_rossi_e_poi_mi_parli_di_una_vita_i_spotify_code.png",
+    "spotify_link": "https://open.spotify.com/track/5xtgvrDTc5dv5DsyXrd4Jg",
+    "tags": ["ita", "70s", "rock"],
+    "content": "<p>Questo weekend, riascoltando una vecchia canzone di Vasco Rossi, mi sono fermato su un testo che conoscevo da anni... ma che non avevo mai davvero ascoltato.</p><br><p>Non lo definirei \"una canzone femminista\" in senso assoluto e Vasco, nonostante \"Sally\", ancora di meno e invece...</p><br><p>Riascoltato oggi, leggo chiaramente un invito a ribellarsi ai ruoli imposti: a non essere \"la donna da sposare\", a trovare la propria voce, a reagire alle aspettative della famiglia e della società.</p>"
+  },
+  {
+    "id": 2,
+    "artist": "Kate Bush",
+    "title": "Running Up That Hill",
+    "year": 1985,
+    "cover": "copertine/2026-07-06_kate_bush_running_up_that_hill.png",
+    "spotify_code": "spotify_codes/kate_bush_running_up_that_hill_spotify_code.png",
+    "spotify_link": "https://open.spotify.com/track/1PtQJZVZIdWIYdARpZRDFO",
+    "tags": ["int", "80s", "pop"],
+    "content": "<p>E se due persone che si amano potessero scambiarsi di posto per capire davvero cosa prova l'altra?</p><br><p>\"And I'd get Him to swap our places.\" Vorrei che ci scambiassimo di posto. Non per cambiare la relazione, ma per cambiare il punto di vista.</p><br><p>Riascoltata oggi, mi sembra quasi un inno all'empatia: il riconoscimento che uomini e donne possono vivere la stessa relazione in modi profondamente diversi e che comprenderlo richiede uno sforzo.</p>"
+  },
+  {
+    "id": 3,
+    "artist": "Raffaella Carrà",
+    "title": "Rumore",
+    "year": 1974,
+    "cover": "copertine/2026-07-13_raffaella_carra_rumore.png",
+    "spotify_code": "spotify_codes/raffaella_carra_rumore_spotify_code.png",
+    "spotify_link": "https://open.spotify.com/track/1YAs3Z89zQfM6p1zM6M7vF",
+    "tags": ["ita", "70s", "pop"],
+    "content": "<p>Siamo nei primi anni '70. La televisione italiana è un luogo ordinato: i corpi femminili sono raccontati dentro un'idea precisa di misura. Nella musica leggera, le canzoni parlano spesso di attesa, amore subito e perdita.</p><br><p>Poi entra in scena Raffaella Carrà. Il corpo diventa parte del linguaggio: movimento ed energia che rompono la grammatica sobria dell'epoca. E dentro questo contesto arriva \"Rumore\".</p><br><p>Riascoltata oggi, emerge una frase che cambia il tono di tutto: <em>\"Ho deciso che faccio da me\"</em>. Non è solo autonomia pratica, è autonomia narrativa. Il passaggio da una storia subita a una storia scelta.</p>"
+  },
+  {
+    "id": 4,
+    "artist": "The Cure",
+    "title": "Boy's Don't Cry",
+    "year": 1979,
+    "cover": "copertine/2026-07-15_the_cure_boy_s_don_t_cry.png",
+    "spotify_code": "spotify_codes/the_cure_boy_s_don_t_cry_spotify_code.png",
+    "spotify_link": "https://open.spotify.com/track/13f64gVqj9A8vq7W9YmYVf",
+    "tags": ["int", "70s", "rock"],
+    "content": "<p>Dietro il ritmo incalzante e apparentemente allegro di questa pietra miliare della New Wave si nasconde una riflessione importante sulla vulnerabilità emotiva maschile.</p><br><p>Il testo descrive la sofferenza di un ragazzo che, dopo una rottura, cerca di nascondere le proprie lacrime perché \"i ragazzi non piangono\". Un condizionamento sociale che impone agli uomini di reprimere la tristezza e mostrare solo forza.</p><br><p>Robert Smith ha raccontato come la canzone sia nata proprio per sfidare questo stereotipo, rivendicando il diritto di esprimere la propria fragilità.</p>"
+  },
+  {
+    "id": 5,
+    "artist": "Miley Cyrus",
+    "title": "Flowers",
+    "year": 2023,
+    "cover": "copertine/2026-07-20_miley_cyrus_flowers.png",
+    "spotify_code": "spotify_codes/miley_cyrus_flowers_spotify_code.png",
+    "spotify_link": "https://open.spotify.com/track/0yLdNVWF3Srea0uzk55zFn",
+    "tags": ["int", "pop"],
+    "content": "<p>Il brano nasce come risposta diretta a \"When I Was Your Man\" di Bruno Mars, dove lui canta che avrebbe dovuto \"comprarle dei fiori\". La risposta di Miley è semplice e potentissima: <em>\"I can buy myself flowers\"</em>.</p><br><p>Non è una provocazione, è una dichiarazione di autonomia. Il punto è un cambio di prospettiva: non aspettare che qualcun altro colmi uno spazio che puoi imparare ad occupare da sola.</p><br><p>Riascoltata così, Flowers non è solo una canzone post-rottura, ma un manifesto sull'autosufficienza emotiva raccontata in chiave pop.</p>"
+  },
+  {
+    "id": 6,
+    "artist": "Dolly Parton",
+    "title": "9 to 5",
+    "year": 1980,
+    "cover": "copertine/2026-07-27_dolly_parton_9_to_5.png",
+    "spotify_code": "spotify_codes/dolly_parton_9_to_5_spotify_code.png",
+    "spotify_link": "https://open.spotify.com/track/49W6Z98Z6X7m8v8X",
+    "tags": ["int", "80s", "pop"],
+    "content": "<p>\"9 to 5\" non è una semplice canzone dal ritmo allegro. È una rivolta. Scritta per l'omonimo film con Jane Fonda, fotografa una mattina in cui tutto è affrettato, dove il corpo è al servizio del tempo e del lavoro.</p><br><p>La canzone affronta temi complessi: disparità salariale, aspettative non dette e carico mentale. Nel 1980, quando è stata scritta, queste parole non avevano ancora un nome comune nel dibattito pubblico.</p><br><p>Dolly Parton riesce a far passare un messaggio politico forte usando l'ironia e un'energia travolgente, rendendo la critica sociale estremamente ascoltabile.</p>"
+  },
+  {
+    "id": 7,
+    "artist": "Lucio Battisti",
+    "title": "Una donna per amico",
+    "year": 1978,
+    "cover": "copertine/2026-07-31_lucio_battisti_una_donna_per_amico.png",
+    "spotify_code": "spotify_codes/lucio_battisti_una_donna_per_amico_spotify_code.png",
+    "spotify_link": "https://open.spotify.com/track/14lv019QQEhOBzJXBccGgjM",
+    "tags": ["ita", "70s", "pop"],
+    "content": "<p>Scritta da Mogol e Battisti, questa canzone affronta un tema rivoluzionario per la musica italiana dell'epoca: l'amicizia sincera, profonda e del tutto platonica tra un uomo e una donna.</p><br><p>In una società che tendeva a inquadrare il rapporto uomo-donna quasi esclusivamente entro gli schemi dell'amore romantico o del matrimonio, Battisti canta le dinamiche di una complicità reale, fatta di confidenze, supporto reciproco e qualche inevitabile gelosia, ma senza implicazioni sentimentali.</p><br><p>Un brano moderno che, sotto un arrangiamento pop impeccabile registrato in Inghilterra, celebra la parità e l'intesa umana oltre i ruoli tradizionali.</p>"
+  }
+]

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EquaVoce — E voi... lo sapevate?</title>
+  <style>
+    /* Reset e impostazioni base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(180deg, #1d0f25 0%, #932252 60%, #da3c6c 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    /* CAPPELLO (Header) */
+    header {
+      text-align: center;
+      max-width: 700px;
+      margin-bottom: 30px;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 15px;
+    }
+    header p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    /* FILTRI */
+    .filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
+      max-width: 800px;
+    }
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: rgba(255, 255, 255, 0.9);
+      padding: 8px 18px;
+      border-radius: 0; /* Angoli netti */
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.25s ease;
+    }
+    .filter-btn:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    .filter-btn.active {
+      background: linear-gradient(135deg, #a82a61 0%, #da3c6c 100%);
+      border-color: transparent;
+      box-shadow: 0 4px 15px rgba(218, 60, 108, 0.4);
+      color: #ffffff;
+    }
+
+    /* GRIGLIA DELLE CARD */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 1100px;
+      margin-bottom: 60px;
+    }
+
+    /* LA CARD (Contenitore 3D) */
+    .card {
+      background: transparent;
+      width: 100%;
+      aspect-ratio: 5 / 4; /* Proporzione esatta 5:4 per combaciare perfettamente con le immagini */
+      perspective: 1000px;
+      cursor: pointer;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    /* Struttura interna della card che ruota */
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform-style: preserve-3d;
+    }
+
+    /* Rotazione al click */
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* Fronte e Retro con angoli netti */
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 0; /* Angoli netti */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+    }
+
+    /* FRONTE: Mostra l'immagine intera della copertina */
+    .card-front {
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Evita qualsiasi tipo di taglio laterale o verticale */
+      display: block;
+    }
+
+    /* RETRO: Contenuto del post */
+    .card-back {
+      background-color: #1a0b20;
+      color: #ffffff;
+      transform: rotateY(180deg);
+      border: 1px solid rgba(218, 60, 108, 0.3);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: left;
+    }
+
+    .post-header {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+    }
+
+    .post-title {
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .post-content {
+      font-size: 0.85rem; /* Ottimizzato per tessere orizzontali */
+      line-height: 1.5;
+      overflow-y: auto;
+      padding-right: 5px;
+      margin-bottom: 10px;
+      flex-grow: 1;
+      color: rgba(255, 255, 255, 0.85);
+    }
+    
+    .post-content::-webkit-scrollbar {
+      width: 4px;
+    }
+    .post-content::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .post-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 10px;
+    }
+
+    .mini-spotify-code {
+      height: 35px;
+      object-fit: contain;
+      opacity: 0.9;
+    }
+
+    .btn-spotify {
+      display: inline-flex;
+      align-items: center;
+      background-color: #1DB954;
+      color: white;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 0; /* Angoli netti sul pulsante */
+      font-size: 0.75rem;
+      font-weight: 700;
+      transition: background-color 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-spotify:hover {
+      background-color: #1ed760;
+    }
+
+    /* SEZIONE ABOUT THE AUTHOR */
+    footer {
+      width: 100%;
+      max-width: 700px;
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      text-align: center;
+    }
+
+    .about-box {
+      background: rgba(29, 15, 37, 0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 0; /* Angoli netti */
+    }
+
+    .about-box h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .about-box p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CAPPELLO (INTRODUZIONE) -->
+  <header>
+    <h1>EquaVoce</h1>
+    <p>Riascoltare la musica di ieri e di oggi con la lente della parità di genere. Frammenti di canzoni, storie dimenticate e spunti di riflessione per guardare oltre il ritmo.</p>
+  </header>
+
+  <!-- SEZIONE BOTTONI DI FILTRO -->
+  <div class="filters">
+    <button class="filter-btn active" onclick="filterCards('all', event)">Tutte</button>
+    <button class="filter-btn" onclick="filterCards('ita', event)">Italiana</button>
+    <button class="filter-btn" onclick="filterCards('int', event)">Internazionale</button>
+    <button class="filter-btn" onclick="filterCards('70s', event)">Anni '70</button>
+    <button class="filter-btn" onclick="filterCards('80s', event)">Anni '80</button>
+    <button class="filter-btn" onclick="filterCards('pop', event)">Pop</button>
+    <button class="filter-btn" onclick="filterCards('rock', event)">Rock</button>
+  </div>
+
+  <!-- GRIGLIA DELLE CARD (Generata via JS) -->
+  <div class="grid" id="songs-grid">
+    <!-- Le card saranno inserite qui dinamicamente -->
+  </div>
+
+  <!-- SEZIONE ABOUT THE AUTHOR -->
+  <footer>
+    <div class="about-box">
+      <h3>Chi c'è dietro EquaVoce</h3>
+      <p>Ciao, sono l'autore di questa rubrica. Appassionato di musica e convinto che le parole che cantiamo ogni giorno portino con sé storie, significati e talvolta persino rivoluzioni invisibili. EquaVoce nasce per gioco e per curiosità: un piccolo spazio per riascoltare i classici (e non solo) con una consapevolezza diversa.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Rotazione delle card al click
+    function toggleCard(cardElement, event) {
+      if (event.target.tagName === 'A' || event.target.closest('a')) {
+        return;
+      }
+      cardElement.classList.toggle('flipped');
+    }
+
+    // Caricamento dinamico dei dati dal file JSON
+    async function loadSongs() {
+      try {
+        const response = await fetch('songs.json');
+        if (!response.ok) {
+          throw new Error('Impossibile caricare il file JSON delle canzoni');
+        }
+        const songs = await response.json();
+        renderCards(songs);
+      } catch (error) {
+        console.error("Errore:", error);
+        document.getElementById('songs-grid').innerHTML = `<p style="grid-column: 1/-1; text-align: center;">Errore nel caricamento delle canzoni. Assicurati che songs.json sia presente nella stessa cartella.</p>`;
+      }
+    }
+
+    // Rendering delle card nel DOM
+    function renderCards(songs) {
+      const grid = document.getElementById('songs-grid');
+      grid.innerHTML = ''; // Svuota la griglia se necessario
+
+      songs.forEach(song => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.setAttribute('data-tags', song.tags.join(' '));
+        card.setAttribute('onclick', 'toggleCard(this, event)');
+
+        card.innerHTML = `
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="${song.cover}" alt="${song.artist}">
+            </div>
+            <div class="card-back">
+              <div class="post-header">
+                <div class="post-title">#${song.id} — ${song.artist} (${song.year})</div>
+              </div>
+              <div class="post-content">
+                ${song.content}
+              </div>
+              <div class="post-footer">
+                <img class="mini-spotify-code" src="${song.spotify_code}" alt="Spotify Code">
+                <a href="${song.spotify_link}" target="_blank" class="btn-spotify">Ascolta</a>
+              </div>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Gestione dei filtri
+    function filterCards(tag, event) {
+      // Aggiorna lo stato visivo dei pulsanti
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.currentTarget.classList.add('active');
+
+      // Applica il filtro alle card
+      document.querySelectorAll('.card').forEach(card => {
+        card.classList.remove('flipped'); // Rigira sul fronte per sicurezza
+
+        const tags = card.getAttribute('data-tags').split(' ');
+        
+        if (tag === 'all' || tags.includes(tag)) {
+          card.style.display = 'block';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+          }, 10);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.8)';
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 400);
+        }
+      });
+    }
+
+    // Avvia il caricamento all'apertura del sito
+    window.onload = loadSongs;
+  </script>
+
+</body>
+</html>
