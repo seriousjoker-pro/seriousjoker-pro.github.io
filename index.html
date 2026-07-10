@@ -117,7 +117,7 @@
         card.className = 'card';
         card.setAttribute('data-tags', (song.tags || []).join(' '));
         card.setAttribute('title', artist + ' – ' + title);
-        card.setAttribute('onclick', 'openCardModal(' + idx + ')');
+        card.setAttribute('onclick', 'openCardModal(' + idx + ', this)');
 
         card.innerHTML = `
           <div class="card-front">
@@ -128,10 +128,13 @@
       });
     }
 
+    let sourceCardEl = null; // card di origine, per l'animazione "piccola -> grande" e viceversa
+
     // Apre il modale con il "retro" (post completo) di una sola canzone
-    function openCardModal(idx) {
+    function openCardModal(idx, cardEl) {
       const song = currentSongs[idx];
       if (!song) return;
+      sourceCardEl = cardEl || null;
 
       const artist = song.artist || "Sconosciuto";
       const title = song.title || "Brano senza titolo";
@@ -189,13 +192,72 @@
         </div>
       `;
 
-      document.getElementById('cardModalOverlay').classList.add('active');
+      const overlay = document.getElementById('cardModalOverlay');
+      const modal = overlay.querySelector('.card-modal');
+
+      overlay.classList.add('active');
       document.body.style.overflow = 'hidden';
+
+      // Animazione FLIP: il modale "nasce" dalla posizione/dimensione della card cliccata
+      // e cresce fino alla sua posizione finale, grande e centrata.
+      if (sourceCardEl) {
+        const startRect = sourceCardEl.getBoundingClientRect();
+        const endRect = modal.getBoundingClientRect();
+
+        const scaleX = startRect.width / endRect.width;
+        const scaleY = startRect.height / endRect.height;
+        const translateX = (startRect.left + startRect.width / 2) - (endRect.left + endRect.width / 2);
+        const translateY = (startRect.top + startRect.height / 2) - (endRect.top + endRect.height / 2);
+
+        modal.style.transition = 'none';
+        modal.style.opacity = '0.5';
+        modal.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scaleX}, ${scaleY})`;
+
+        // forza il reflow prima di animare, altrimenti il browser "salta" lo stato iniziale
+        void modal.offsetWidth;
+
+        requestAnimationFrame(() => {
+          modal.style.transition = 'transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.25s ease';
+          modal.style.transform = 'translate(0, 0) scale(1, 1)';
+          modal.style.opacity = '1';
+        });
+      } else {
+        modal.style.transition = '';
+        modal.style.transform = '';
+        modal.style.opacity = '';
+      }
     }
 
     function closeCardModal() {
-      document.getElementById('cardModalOverlay').classList.remove('active');
-      document.body.style.overflow = '';
+      const overlay = document.getElementById('cardModalOverlay');
+      const modal = overlay.querySelector('.card-modal');
+
+      const finish = () => {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+        modal.style.transition = '';
+        modal.style.transform = '';
+        modal.style.opacity = '';
+      };
+
+      // Animazione di chiusura: il modale torna a rimpicciolirsi verso la card di origine
+      if (sourceCardEl) {
+        const startRect = modal.getBoundingClientRect();
+        const endRect = sourceCardEl.getBoundingClientRect();
+
+        const scaleX = endRect.width / startRect.width;
+        const scaleY = endRect.height / startRect.height;
+        const translateX = (endRect.left + endRect.width / 2) - (startRect.left + startRect.width / 2);
+        const translateY = (endRect.top + endRect.height / 2) - (startRect.top + startRect.height / 2);
+
+        modal.style.transition = 'transform 0.3s ease, opacity 0.25s ease';
+        modal.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scaleX}, ${scaleY})`;
+        modal.style.opacity = '0.4';
+
+        setTimeout(finish, 260);
+      } else {
+        finish();
+      }
     }
 
     function closeCardModalOnBackdrop(event) {
