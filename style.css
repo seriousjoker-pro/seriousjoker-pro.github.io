@@ -380,18 +380,14 @@ header p {
   flex: 1;
   min-width: 0;
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  column-gap: 18px;
-  row-gap: 8px;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .about-text {
   font-size: 0.84rem;
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.6);
-  flex: 1;
-  min-width: 240px;
 }
 
 .about-text strong {
@@ -402,11 +398,13 @@ header p {
 .footer-socials {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 14px;
-  flex-shrink: 0;
+  gap: 6px 18px;
 }
 
 .footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   color: rgba(255, 255, 255, 0.55);
   text-decoration: none;
   font-size: 0.76rem;
@@ -416,6 +414,11 @@ header p {
 
 .footer-socials a:hover {
   color: #ec7ea3;
+}
+
+.social-icon {
+  font-size: 0.9rem;
+  line-height: 1;
 }
 
 /* Copyright inferiore */
