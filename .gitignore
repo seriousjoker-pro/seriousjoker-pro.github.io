@@ -1,0 +1,13 @@
+# File di lavoro interni al progetto dashboard - non vanno sul sito pubblico
+CLAUDE.md
+EquaVoce_bozze_post.md
+EquaVoce_calendario_editoriale.html
+EquaVoce_calendario_editoriale.html.backup
+README_spotify_code.md
+equavoce_dati_calendario.json
+genera_copertina.py
+scarica_codice_spotify.sh
+*.pyc
+__pycache__/
+.DS_Store
+Thumbs.db
