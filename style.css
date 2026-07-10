@@ -147,57 +147,38 @@ header p {
   color: #ffffff;
 }
 
-/* GRIGLIA DELLE CARD */
+/* GRIGLIA DELLE CARD (fronte piccolo: solo copertina, cliccabile) */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
   width: 100%;
   margin-bottom: 60px;
 }
 
-/* LA CARD (Contenitore 3D) */
 .card {
   background: transparent;
   width: 100%;
-  aspect-ratio: 5 / 4; /* Proporzione orizzontale esatta (5:4) per combaciare con le tue immagini */
-  perspective: 1000px;
+  aspect-ratio: 5 / 4;
   cursor: pointer;
 }
 
-/* Struttura interna della card che ruota */
-.card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transform-style: preserve-3d;
-}
-
-/* Rotazione al click */
-.card.flipped .card-inner {
-  transform: rotateY(180deg);
-}
-
-/* Fronte e Retro con angoli netti */
-.card-front, .card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border-radius: 0;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-}
-
-/* FRONTE: Solo l'immagine orizzontale pulita */
 .card-front {
-  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover .card-front,
+.card:focus-visible .card-front {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(140, 29, 64, 0.25);
 }
 
 .card-front img {
@@ -207,45 +188,90 @@ header p {
   display: block;
 }
 
-/* RETRO: Struttura del post */
-.card-back {
+/* MODALE: mostra il "retro" grande e centrato, una card alla volta */
+.card-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 6, 11, 0.78);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.card-modal-overlay.active {
+  display: flex;
+}
+
+.card-modal {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  max-height: 88vh;
+  overflow-y: auto;
   background-color: #1a0b20;
   color: #ffffff;
-  transform: rotateY(180deg);
   border: 1px solid rgba(218, 60, 108, 0.3);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  border-radius: 10px;
+  padding: 24px;
   text-align: left;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  animation: cardModalPop 0.2s ease;
+}
+
+@keyframes cardModalPop {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.card-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.card-modal-close:hover {
+  background: rgba(218, 60, 108, 0.25);
+  border-color: #da3c6c;
+}
+
+.card-modal-cover {
+  width: 100%;
+  max-height: 260px;
+  object-fit: contain;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  display: block;
 }
 
 /* Front-Matter (Metadata) */
 .post-header-meta {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 4px 10px;
-  font-size: 0.72rem;
+  gap: 6px 12px;
+  font-size: 0.78rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  padding-bottom: 8px;
-  margin-bottom: 8px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
   color: rgba(255, 255, 255, 0.8);
 }
 
-.post-header-meta span {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Corpo del post con scorrimento */
+/* Corpo del post */
 .post-body {
-  font-size: 0.8rem;
-  line-height: 1.45;
-  overflow-y: auto;
-  padding-right: 6px;
-  margin-bottom: 8px;
-  flex-grow: 1;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin-bottom: 10px;
   color: rgba(255, 255, 255, 0.9);
 }
 
@@ -270,12 +296,13 @@ header p {
   color: #da3c6c;
 }
 
-.post-body::-webkit-scrollbar {
-  width: 4px;
+.card-modal::-webkit-scrollbar {
+  width: 6px;
 }
 
-.post-body::-webkit-scrollbar-thumb {
+.card-modal::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
 }
 
 /* Footer con codice Spotify e bottone */

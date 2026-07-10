@@ -44,6 +44,14 @@
 
   </div> <!-- FINE CONTENITORE CENTRATO -->
 
+  <!-- MODALE: mostra il "retro" di una sola card alla volta, grande e centrato -->
+  <div class="card-modal-overlay" id="cardModalOverlay" onclick="closeCardModalOnBackdrop(event)">
+    <div class="card-modal">
+      <button class="card-modal-close" onclick="closeCardModal()" aria-label="Chiudi">&times;</button>
+      <div id="cardModalContent"></div>
+    </div>
+  </div>
+
   <!-- FOOTER (About a larghezza piena + copyright compatto) -->
   <footer class="site-footer">
     <div class="footer-container">
@@ -76,13 +84,7 @@
   </footer>
 
   <script>
-    // Rotazione delle card al click
-    function toggleCard(cardElement, event) {
-      if (event.target.tagName === 'A' || event.target.closest('a')) {
-        return;
-      }
-      cardElement.classList.toggle('flipped');
-    }
+    let currentSongs = [];
 
     // Caricamento dinamico dei dati dal file JSON
     async function loadSongs() {
@@ -99,78 +101,110 @@
       }
     }
 
-    // Rendering delle card nel DOM (con controllo difensivo anti-undefined)
+    // Rendering delle card "fronte" nel DOM: piccole, solo copertina.
+    // Il "retro" si apre in un modale grande e centrato (una card alla volta).
     function renderCards(songs) {
+      currentSongs = songs;
       const grid = document.getElementById('songs-grid');
       grid.innerHTML = '';
 
-      songs.forEach(song => {
+      songs.forEach((song, idx) => {
         const artist = song.artist || "Sconosciuto";
         const title = song.title || "Brano senza titolo";
-        const year = song.year || "N/A";
-        const album = song.album || "N/A";
         const cover = song.cover || "";
-        const spotifyCode = song.spotify_code || "";
-        const spotifyLink = song.spotify_link || "#";
-
-        const intro = song.intro || "";
-        const curiosity = song.curiosity || "";
-        const reflection = song.reflection || song.content || "Contenuto non disponibile.";
-        const outro = song.outro || "";
 
         const card = document.createElement('div');
         card.className = 'card';
         card.setAttribute('data-tags', (song.tags || []).join(' '));
-        card.setAttribute('onclick', 'toggleCard(this, event)');
-
-        let postBodyHTML = `<p>${intro}</p>`;
-        
-        if (curiosity) {
-          postBodyHTML += `
-            <div class="post-section">
-              <h4>💡 Curiosità</h4>
-              <p>${curiosity}</p>
-            </div>
-          `;
-        }
-        
-        postBodyHTML += `
-          <div class="post-section">
-            <h4>🔍 Riflessione</h4>
-            <p>${reflection}</p>
-          </div>
-        `;
-
-        if (outro) {
-          postBodyHTML += `<p>🎧 ${outro}</p>`;
-        }
-
-        postBodyHTML += `<p style="font-weight: bold; margin-top: 15px; font-size: 0.8rem; color: #da3c6c;">E voi... lo sapevate?</p>`;
+        card.setAttribute('title', artist + ' – ' + title);
+        card.setAttribute('onclick', 'openCardModal(' + idx + ')');
 
         card.innerHTML = `
-          <div class="card-inner">
-            <div class="card-front">
-              <img src="${cover}" alt="${artist} - ${title}">
-            </div>
-            <div class="card-back">
-              <div class="post-header-meta">
-                <span>👩🏻‍🎤 <strong>Artista:</strong> ${artist}</span>
-                <span>📅 <strong>Anno:</strong> ${year}</span>
-                <span style="grid-column: span 2;">💿 <strong>Album:</strong> ${album}</span>
-              </div>
-              <div class="post-body">
-                ${postBodyHTML}
-              </div>
-              <div class="post-footer">
-                <img class="mini-spotify-code" src="${spotifyCode}" alt="Spotify Code">
-                <a href="${spotifyLink}" target="_blank" class="btn-spotify">Ascolta</a>
-              </div>
-            </div>
+          <div class="card-front">
+            <img src="${cover}" alt="${artist} - ${title}" loading="lazy">
           </div>
         `;
         grid.appendChild(card);
       });
     }
+
+    // Apre il modale con il "retro" (post completo) di una sola canzone
+    function openCardModal(idx) {
+      const song = currentSongs[idx];
+      if (!song) return;
+
+      const artist = song.artist || "Sconosciuto";
+      const title = song.title || "Brano senza titolo";
+      const year = song.year || "";
+      const album = song.album || "";
+      const cover = song.cover || "";
+      const spotifyCode = song.spotify_code || "";
+      const spotifyLink = song.spotify_link || "#";
+
+      const intro = song.intro || "";
+      const curiosity = song.curiosity || "";
+      const reflection = song.reflection || song.content || "Contenuto non disponibile.";
+      const outro = song.outro || "";
+
+      let postBodyHTML = `<p>${intro}</p>`;
+
+      if (curiosity) {
+        postBodyHTML += `
+          <div class="post-section">
+            <h4>💡 Curiosità</h4>
+            <p>${curiosity}</p>
+          </div>
+        `;
+      }
+
+      postBodyHTML += `
+        <div class="post-section">
+          <h4>🔍 Riflessione</h4>
+          <p>${reflection}</p>
+        </div>
+      `;
+
+      if (outro) {
+        postBodyHTML += `<p>🎧 ${outro}</p>`;
+      }
+
+      postBodyHTML += `<p style="font-weight: bold; margin-top: 15px; font-size: 0.8rem; color: #da3c6c;">E voi... lo sapevate?</p>`;
+
+      const metaSpans = [
+        `<span style="grid-column: span 2;">🎵 <strong>Titolo:</strong> ${title}</span>`,
+        `<span>👩🏻‍🎤 <strong>Artista:</strong> ${artist}</span>`,
+        `<span>📅 <strong>Anno:</strong> ${year || 'N/A'}</span>`
+      ];
+      if (album) {
+        metaSpans.push(`<span style="grid-column: span 2;">💿 <strong>Album:</strong> ${album}</span>`);
+      }
+
+      document.getElementById('cardModalContent').innerHTML = `
+        <img class="card-modal-cover" src="${cover}" alt="${artist} - ${title}">
+        <div class="post-header-meta">${metaSpans.join('')}</div>
+        <div class="post-body">${postBodyHTML}</div>
+        <div class="post-footer">
+          <img class="mini-spotify-code" src="${spotifyCode}" alt="Spotify Code">
+          <a href="${spotifyLink}" target="_blank" class="btn-spotify">Ascolta</a>
+        </div>
+      `;
+
+      document.getElementById('cardModalOverlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCardModal() {
+      document.getElementById('cardModalOverlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function closeCardModalOnBackdrop(event) {
+      if (event.target.id === 'cardModalOverlay') closeCardModal();
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeCardModal();
+    });
 
     // Gestione dei filtri
     function filterCards(tag, event) {
@@ -180,10 +214,8 @@
       event.currentTarget.classList.add('active');
 
       document.querySelectorAll('.card').forEach(card => {
-        card.classList.remove('flipped');
-
         const tags = (card.getAttribute('data-tags') || '').split(' ');
-        
+
         if (tag === 'all' || tags.includes(tag)) {
           card.style.display = 'block';
           setTimeout(() => {
