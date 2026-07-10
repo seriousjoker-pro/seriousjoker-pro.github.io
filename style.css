@@ -150,10 +150,47 @@ header p {
 /* GRIGLIA DELLE CARD (fronte piccolo: solo copertina, cliccabile) */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
   width: 100%;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 420px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+/* Pulsante "Mostra altre / Mostra meno" */
+.show-more-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
   margin-bottom: 60px;
+}
+
+.btn-show-more {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  color: #8c1d40;
+  padding: 10px 22px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.btn-show-more:hover {
+  background: #fdf5f9;
+  border-color: #da3c6c;
 }
 
 .card {

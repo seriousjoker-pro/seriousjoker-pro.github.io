@@ -42,6 +42,11 @@
       <!-- Le card saranno inserite qui dinamicamente -->
     </div>
 
+    <!-- Mostra altre / Mostra meno (oltre le prime 12) -->
+    <div class="show-more-wrap" id="showMoreWrap" style="display:none;">
+      <button class="btn-show-more" id="showMoreBtn" onclick="toggleShowMore()"></button>
+    </div>
+
   </div> <!-- FINE CONTENITORE CENTRATO -->
 
   <!-- MODALE: mostra il "retro" di una sola card alla volta, grande e centrato -->
@@ -95,6 +100,7 @@
         }
         const songs = await response.json();
         renderCards(songs);
+        applyVisibility();
       } catch (error) {
         console.error("Errore:", error);
         document.getElementById('songs-grid').innerHTML = `<p style="grid-column: 1/-1; text-align: center;">Errore nel caricamento delle canzoni. Assicurati che songs.json sia presente nella stessa cartella.</p>`;
@@ -268,30 +274,61 @@
       if (e.key === 'Escape') closeCardModal();
     });
 
-    // Gestione dei filtri
+    // Gestione dei filtri + limite di card visibili con "Mostra altre"
+    const CARD_LIMIT = 12;
+    let currentFilterTag = 'all';
+    let expanded = false;
+
     function filterCards(tag, event) {
       document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.classList.remove('active');
       });
       event.currentTarget.classList.add('active');
 
-      document.querySelectorAll('.card').forEach(card => {
-        const tags = (card.getAttribute('data-tags') || '').split(' ');
+      currentFilterTag = tag;
+      expanded = false;
+      applyVisibility();
+    }
 
-        if (tag === 'all' || tags.includes(tag)) {
-          card.style.display = 'block';
-          setTimeout(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'scale(1)';
-          }, 10);
+    // Mostra solo le prime CARD_LIMIT card che rispettano il filtro attivo;
+    // le altre restano nascoste finché non si preme "Mostra altre".
+    function applyVisibility() {
+      const cards = document.querySelectorAll('.card');
+      let totalMatching = 0;
+
+      cards.forEach(card => {
+        const tags = (card.getAttribute('data-tags') || '').split(' ');
+        const matches = currentFilterTag === 'all' || tags.includes(currentFilterTag);
+
+        if (!matches) {
+          card.style.display = 'none';
+          return;
+        }
+
+        totalMatching++;
+        if (!expanded && totalMatching > CARD_LIMIT) {
+          card.style.display = 'none';
         } else {
-          card.style.opacity = '0';
-          card.style.transform = 'scale(0.8)';
-          setTimeout(() => {
-            card.style.display = 'none';
-          }, 400);
+          card.style.display = 'block';
         }
       });
+
+      const wrap = document.getElementById('showMoreWrap');
+      const btn = document.getElementById('showMoreBtn');
+      if (totalMatching > CARD_LIMIT) {
+        wrap.style.display = 'flex';
+        btn.textContent = expanded ? '▲ Mostra meno' : ('▼ Mostra altre ' + (totalMatching - CARD_LIMIT) + ' canzoni');
+      } else {
+        wrap.style.display = 'none';
+      }
+    }
+
+    function toggleShowMore() {
+      expanded = !expanded;
+      applyVisibility();
+      if (!expanded) {
+        document.getElementById('showMoreWrap').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     }
 
     window.onload = loadSongs;
