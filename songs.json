@@ -3,75 +3,129 @@
     "id": 1,
     "artist": "Vasco Rossi",
     "title": "...E poi mi parli di una vita insieme",
-    "year": 1978,
-    "album": "...Ma cosa vuoi che sia una canzone...",
+    "year": "1978",
+    "album": "",
     "cover": "copertine/2026-06-29_vasco_rossi_e_poi_mi_parli_di_una_vita_i.png",
     "spotify_code": "spotify_codes/vasco_rossi_e_poi_mi_parli_di_una_vita_i_spotify_code.png",
     "spotify_link": "https://open.spotify.com/track/5xtgvrDTc5dv5DsyXrd4Jg",
-    "tags": ["ita", "70s", "rock"],
-    "intro": "Questo weekend, riascoltando una vecchia canzone di Vasco Rossi, mi sono fermato su un testo che conoscevo da anni... ma che non avevo mai davvero ascoltato.",
-    "curiosity": "Il brano uscì come singolo prima ancora dell'album e, nonostante abbia quasi cinquant'anni, Vasco non lo ha mai portato dal vivo.",
-    "reflection": "Non lo definirei \"una canzone femminista\" in senso assoluto e Vasco, nonostante \"Sally\", ancora di meno e invece... Riascoltato oggi, leggo chiaramente un invito a ribellarsi ai ruoli imposti: a non essere \"la donna da sposare\", a trovare la propria voce, a reagire alle aspettative della famiglia e della società. È sorprendente pensare che queste parole siano state scritte nel 1978.",
-    "outro": "Se avete cinque minuti, provate ad ascoltarla (o riascoltarla) e ditemi: oggi voi come la interpretereste? Se l'idea vi piace, questa potrebbe diventare una piccola rubrica di EquaVoce: canzoni da riascoltare con la lente della parità di genere."
+    "tags": [
+      "rivoluzionaria",
+      "ruoli imposti",
+      "classico"
+    ],
+    "intro": "Oggi parliamo di Vasco Rossi – \"...E poi mi parli di una vita insieme\" (1978).",
+    "curiosity": "Il brano uscì come singolo prima ancora dell'album; nonostante abbia quasi cinquant'anni, Vasco non lo ha mai portato dal vivo.",
+    "reflection": "Un invito a ribellarsi ai ruoli imposti - non essere 'la donna da sposare', trovare la propria voce, reagire alle aspettative della famiglia - sorprendente se si pensa che fu scritto nel 1978.",
+    "outro": "E voi... lo sapevate? «Vorrei che tu... provassi una volta a reagire»"
   },
   {
     "id": 2,
     "artist": "Kate Bush",
     "title": "Running Up That Hill",
-    "year": 1985,
-    "album": "Hounds of Love",
+    "year": "1985",
+    "album": "",
     "cover": "copertine/2026-07-06_kate_bush_running_up_that_hill.png",
     "spotify_code": "spotify_codes/kate_bush_running_up_that_hill_spotify_code.png",
     "spotify_link": "https://open.spotify.com/track/1PtQJZVZIdWIYdARpZRDFO",
-    "tags": ["int", "80s", "pop"],
-    "intro": "Probabilmente l'avete ascoltata decine di volte. Forse l'avete riscoperta grazie a Stranger Things. Oppure, se avete qualche anno in più, come me, nella splendida reinterpretazione dei Placebo. Eppure scommetto che molti non hanno mai pensato davvero al significato del testo. Oggi volevo parlarvi di...",
-    "curiosity": "Il titolo originale era Running Up That Hill (A Deal with God). La casa discografica preferì accorciarlo, temendo che il riferimento a Dio potesse limitarne la programmazione radiofonica. Nel 2022, grazie a Stranger Things, il brano è tornato in vetta alle classifiche, quasi quarant'anni dopo la sua pubblicazione.",
-    "reflection": "Kate Bush ha spiegato che nasce da una domanda: E se due persone che si amano potessero scambiarsi di posto per capire davvero cosa prova l'altra? Per questo il verso più famoso (If I only could, I'd make a deal with God...) non parla di sacrificio. Parla del desiderio di fare l'impossibile pur di comprendere davvero l'altra persona. E subito dopo arriva il passaggio che cambia completamente la prospettiva: And I'd get Him to swap our places. \"Vorrei che ci scambiassimo di posto.\" Non per cambiare la relazione, ma per cambiare il punto di vista. Riascoltata oggi, mi sembra quasi un inno all'empatia: il riconoscimento che uomini e donne possono vivere la stessa relazione in modi profondamente diversi e che comprenderlo richiede uno sforzo. Quella \"salita\" (running up that hill) diventa la metafora della fatica necessaria per uscire dalla propria prospettiva e provare, davvero, a vedere il mondo con gli occhi dell'altra persona.",
-    "outro": "Se avete cinque minuti, riascoltatela pensando a questa chiave di lettura."
+    "tags": [
+      "empatia",
+      "classico"
+    ],
+    "intro": "Oggi parliamo di Kate Bush – \"Running Up That Hill\" (1985).",
+    "curiosity": "Il titolo originale era 'Running Up That Hill (A Deal with God)'; la casa discografica lo accorcio' temendo che il riferimento a Dio ne limitasse la programmazione radiofonica.",
+    "reflection": "Un inno all'empatia: il desiderio di scambiarsi di posto con l'altra persona per comprenderne davvero il punto di vista.",
+    "outro": "E voi... lo sapevate? «I'd get him to swap our places»"
   },
   {
     "id": 3,
-    "artist": "Raffaella Carrà",
-    "title": "Rumore",
-    "year": 1974,
-    "album": "Raffaella Carrà",
-    "cover": "copertine/2026-07-13_raffaella_carra_rumore.png",
-    "spotify_code": "spotify_codes/raffaella_carra_rumore_spotify_code.png",
-    "spotify_link": "https://open.spotify.com/track/1YAs3Z89zQfM6p1zM6M7vF",
-    "tags": ["ita", "70s", "pop"],
-    "intro": "Siamo nei primi anni '70. La televisione italiana è un luogo ordinato: i corpi femminili sono raccontati dentro un'idea precisa di misura ed eleganza. Nella musica leggera, le canzoni parlano spesso di attesa, amore subito e perdita.",
-    "curiosity": "In quegli stessi anni risuonano brani dove la storia resta quella di un sentimento vissuto passivamente. Poi, lentamente, entra in scena una giovane artista che non si limita a cantare, ma occupa fisicamente lo spazio televisivo con energia e movimento.",
-    "reflection": "Riascoltata oggi, emerge una frase che cambia il tono di tutto: \"Ho deciso che faccio da me\". Non è solo autonomia pratica, è autonomia narrativa. Il passaggio da una storia che accade a una storia che viene scelta. In questo gesto c'è qualcosa di profondamente nuovo per l'epoca: non reagire al vuoto, ma interromperlo.",
-    "outro": "Se avete qualche minuto, riascoltatela chiedendovi: quanto di quella \"leggerezza pop\" era in realtà un modo molto concreto di cambiare la presenza femminile sulla scena?"
+    "artist": "Miley Cyrus",
+    "title": "Flowers",
+    "year": "2023",
+    "album": "",
+    "cover": "copertine/2026-07-20_miley_cyrus_flowers.png",
+    "spotify_code": "spotify_codes/miley_cyrus_flowers_spotify_code.png",
+    "spotify_link": "https://open.spotify.com/intl-it/track/0yLdNVWF3Srea0uzk55zFn",
+    "tags": [
+      "autosufficienza emotiva",
+      "femminista"
+    ],
+    "intro": "Oggi parliamo di Miley Cyrus – \"Flowers\" (2023).",
+    "curiosity": "Scritta dopo la separazione da Liam Hemsworth; il verso \"I can buy myself flowers\" ribalta la richiesta di lui nella canzone di Bruno Mars.",
+    "reflection": "Risposta diretta a \"When I Was Your Man\" di Bruno Mars: non aspettare che sia qualcun altro a colmare un vuoto che puoi imparare a occupare da sola.",
+    "outro": "E voi... lo sapevate? «I can buy myself flowers»"
   },
   {
     "id": 4,
-    "artist": "Miley Cyrus",
-    "title": "Flowers",
-    "year": 2023,
-    "album": "Endless Summer Vacation",
-    "cover": "copertine/2026-07-20_miley_cyrus_flowers.png",
-    "spotify_code": "spotify_codes/miley_cyrus_flowers_spotify_code.png",
-    "spotify_link": "https://open.spotify.com/track/0yLdNVWF3Srea0uzk55zFn",
-    "tags": ["int", "pop"],
-    "intro": "Quasi impossibile non averla sentita. È stata ovunque: radio, playlist, social e video. Ma vi siete mai fermati a pensare a cosa sta davvero dicendo?",
-    "curiosity": "Il brano nasce anche come risposta diretta a \"When I Was Your Man\" di Bruno Mars, dove lui canta che, per salvare la relazione, avrebbe dovuto \"comprarle dei fiori\".",
-    "reflection": "La risposta di Miley è semplice e potentissima: \"I can buy myself flowers. I can take myself dancing. Yeah, I can love me better than you can\". Non è una provocazione, è una dichiarazione di autonomia. Il punto è un cambio di prospettiva: non aspettare che qualcun altro colmi uno spazio che puoi imparare a occupare da sola. È una canzone sull'autosufficienza emotiva raccontata in modo pop.",
-    "outro": "Riascoltatela con questa chiave. Per voi è solo una canzone sull'ex o qualcosa di diverso?"
+    "artist": "Raffaella Carra'",
+    "title": "Rumore",
+    "year": "1974",
+    "album": "",
+    "cover": "copertine/2026-07-13_raffaella_carra_rumore.png",
+    "spotify_code": "spotify_codes/raffaella_carra_rumore_spotify_code.png",
+    "spotify_link": "https://open.spotify.com/intl-it/track/5p7Q2WxCtWAmmACyIt1XYL",
+    "tags": [
+      "rivoluzionaria",
+      "autonomia"
+    ],
+    "intro": "Oggi parliamo di Raffaella Carra' – \"Rumore\" (1974).",
+    "curiosity": "Segna il passaggio a una presenza femminile in TV che occupa lo spazio invece di essere solo inquadrata.",
+    "reflection": "\"Ho deciso che faccio da me\": il passaggio da una storia subita a una storia scelta, in un'Italia televisiva ancora molto composta.",
+    "outro": "E voi... lo sapevate? «Ho deciso che faccio da me»"
   },
   {
     "id": 5,
+    "artist": "Dolly Parton",
+    "title": "9 to 5",
+    "year": "1980",
+    "album": "",
+    "cover": "copertine/2026-07-27_dolly_parton_9_to_5.png",
+    "spotify_code": "spotify_codes/dolly_parton_9_to_5_spotify_code.png",
+    "spotify_link": "https://open.spotify.com/intl-it/track/4w3tQBXhn5345eUXDGBWZG",
+    "tags": [
+      "femminista",
+      "lavoro"
+    ],
+    "intro": "Oggi parliamo di Dolly Parton – \"9 to 5\" (1980).",
+    "curiosity": "Dolly Parton compose il ritmo battendo le unghie finte come percussione; il brano diede il titolo all'omonimo film con Jane Fonda.",
+    "reflection": "Una critica arguta e orecchiabile alle disparita' in ufficio, scritta quando il tema non aveva ancora un nome comune.",
+    "outro": "E voi... lo sapevate? «Want to move ahead, but the boss won't seem to let me»"
+  },
+  {
+    "id": 6,
+    "artist": "Patty Pravo",
+    "title": "La bambola",
+    "year": "1968",
+    "album": "",
+    "cover": "copertine/2026-08-24_patty_pravo_la_bambola.png",
+    "spotify_code": "spotify_codes/patty_pravo_la_bambola_spotify_code.png",
+    "spotify_link": "https://open.spotify.com/track/6uh7Mg8FBL98cdnGtkGHIw",
+    "tags": [
+      "rivoluzionaria",
+      "divisiva",
+      "dignita'"
+    ],
+    "intro": "Oggi parliamo di Patty Pravo – \"La bambola\" (1968).",
+    "curiosity": "Secondo l'autore Franco Migliacci, il brano nacque ascoltando in Piazza Navona una donna che incitava le amiche a non essere piu' le 'bambole' degli uomini; il pezzo fu inizialmente rifiutato da altri interpreti prima di diventare un successo enorme.",
+    "reflection": "Una donna trattata come un giocattolo da un uomo che la usa e poi la getta via, che si ribella e pretende rispetto: uno degli autori la defini' 'la prima canzone femminista', ma fu spesso interpretata al contrario, come un'ode alla donna-oggetto.",
+    "outro": "E voi... lo sapevate? «No, tu non puoi farmi questo.»"
+  },
+  {
+    "id": 7,
     "artist": "Lucio Battisti",
     "title": "Una donna per amico",
-    "year": 1978,
-    "album": "Una donna per amico",
+    "year": "1978",
+    "album": "",
     "cover": "copertine/2026-07-31_lucio_battisti_una_donna_per_amico.png",
     "spotify_code": "spotify_codes/lucio_battisti_una_donna_per_amico_spotify_code.png",
-    "spotify_link": "https://open.spotify.com/track/14lv019QQEhOBzJXBccGgjM",
-    "tags": ["ita", "70s", "pop"],
-    "intro": "In un panorama musicale dominato da canzoni d'amore struggenti o drammatiche, Battisti e Mogol fecero uscire un brano dal ritmo travolgente che scardinava un tabù sociale.",
-    "curiosity": "L'album omonimo fu registrato interamente in Inghilterra con musicisti internazionali, dando al brano quel sound tipicamente funk e moderno che ancora oggi ci fa muovere a tempo.",
-    "reflection": "Il testo affronta un concetto rivoluzionario per l'epoca: l'amicizia profonda, sincera e del tutto platonica tra un uomo e una donna. In un'Italia che faticava a concepire i rapporti di genere al di fuori dell'amore romantico o del matrimonio, il brano celebra la complicità pura, abbattendo l'idea che generi diversi non possano semplicemente allearsi alla pari.",
-    "outro": "Un classico intramontabile che ci ricorda come l'intesa e il rispetto reciproco vadano oltre i ruoli tradizionali."
+    "spotify_link": "https://open.spotify.com/intl-it/track/2ogYCPCKE10ZHzckKBIF6d",
+    "tags": [
+      "non machista",
+      "amicizia",
+      "comunicazione"
+    ],
+    "intro": "Oggi parliamo di Lucio Battisti – \"Una donna per amico\" (1978).",
+    "curiosity": "Il testo, scritto da Mogol, ha un'origine autobiografica: l'amica in questione era una persona reale, Adriana, con cui Mogol si vedeva ogni mattina al bar vicino a dove abitavano entrambi.",
+    "reflection": "Un uomo e una donna che si confidano da pari, si danno consigli sentimentali a vicenda e restano amici senza che il rapporto scivoli mai nel possesso: un'idea di relazione fuori dagli schemi romantici tradizionali.",
+    "outro": "E voi... lo sapevate? «Ho scelto te, una donna, per amico»"
   }
 ]
