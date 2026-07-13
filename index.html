@@ -23,22 +23,18 @@
       <p>Promuovere una cultura musicale inclusiva e consapevole. Frammenti di canzoni, storie dimenticate e spunti di riflessione per guardare oltre il ritmo.</p>
     </header>
 
-    <!-- SEZIONE FILTRI: generata dinamicamente in base alle canzoni caricate (vedi buildFilters in JS) -->
+    <!-- SEZIONE FILTRI: generata dinamicamente in base alle canzoni caricate (vedi buildFilters in JS).
+         Decade e provenienza sono pulsanti a selezione multipla (si attivano/disattivano cliccandoli,
+         nessuno selezionato = nessun filtro su quella dimensione). Tema e genere sono due menu a tendina. -->
     <div class="filter-wrapper" id="filterWrapper" style="display:none;">
-      <div class="filter-row">
-        <span class="filter-label">Decade:</span>
-        <div class="filters" id="filtersDecade"></div>
-      </div>
-      <div class="filter-row">
-        <span class="filter-label">Provenienza:</span>
-        <div class="filters" id="filtersCountry"></div>
-      </div>
-      <div class="filter-row">
-        <span class="filter-label">Tema:</span>
-        <select id="filterTema" onchange="onTemaChange(this.value)">
-          <option value="all">Tutti</option>
-        </select>
-      </div>
+      <div class="filters" id="filtersDecade"></div>
+      <div class="filters" id="filtersCountry"></div>
+      <select id="filterTema" onchange="onTemaChange(this.value)">
+        <option value="all">Tema: tutti</option>
+      </select>
+      <select id="filterGenere" onchange="onGenereChange(this.value)">
+        <option value="all">Genere: tutti</option>
+      </select>
     </div>
 
     <!-- GRIGLIA DELLE CARD -->
@@ -159,6 +155,7 @@
         card.className = 'card';
         card.setAttribute('data-decade', song.decade || '');
         card.setAttribute('data-country', song.country || '');
+        card.setAttribute('data-genere', song.genere || '');
         card.setAttribute('data-tags', (song.tags || []).join('|'));
         card.setAttribute('title', artist + ' – ' + title);
         card.setAttribute('onclick', 'openCardModal(' + idx + ', this)');
@@ -298,13 +295,16 @@
     });
 
     // Gestione dei filtri + limite di card visibili con "Mostra altre".
-    // I filtri (decade, provenienza, tema) sono generati dinamicamente da buildFilters()
+    // I filtri (decade, provenienza, tema, genere) sono generati dinamicamente da buildFilters()
     // in base a cosa e' effettivamente presente in songs.json: non c'e' nulla di fisso da
-    // aggiornare a mano quando arrivano canzoni di nuovi decenni o con nuovi temi.
+    // aggiornare a mano quando arrivano canzoni di nuovi decenni, provenienze o generi.
+    // Decade e provenienza sono a selezione multipla (toggle): nessun pulsante attivo = nessun
+    // filtro su quella dimensione, piu' pulsanti attivi = OR fra loro.
     const CARD_LIMIT = 12;
-    let currentDecade = 'all';
-    let currentCountry = 'all';
+    let selectedDecades = new Set();
+    let selectedCountries = new Set();
     let currentTema = 'all';
+    let currentGenere = 'all';
     let expanded = false;
 
     function decadeSortKey(d) {
@@ -312,50 +312,61 @@
       return isNaN(n) ? 9999 : n;
     }
 
+    // "1970s" -> "Anni '70" (secolo scorso, forma abbreviata), "2020s" -> "Anni 2020"
+    // (millennio corrente per esteso, per non confondersi con l'abbreviazione del '900).
+    function decadeLabel(d) {
+      const century = d.slice(0, 2);
+      const shortYear = d.slice(2, 4);
+      return century === '19' ? "Anni '" + shortYear : "Anni " + century + shortYear;
+    }
+
     function buildFilters(songs) {
       const decades = [...new Set(songs.map(s => s.decade).filter(Boolean))].sort((a, b) => decadeSortKey(a) - decadeSortKey(b));
       const countries = [...new Set(songs.map(s => s.country).filter(Boolean))].sort();
       const temi = [...new Set(songs.flatMap(s => s.tags || []))].sort((a, b) => a.localeCompare(b, 'it'));
-
-      const decadeLabel = d => "Anni " + d.replace('s', '').slice(-2) + "'";
+      const generi = [...new Set(songs.map(s => s.genere).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'it'));
 
       const decadeWrap = document.getElementById('filtersDecade');
-      decadeWrap.innerHTML = '<button class="filter-btn active" data-value="all" onclick="onDecadeChange(this, \'all\')">Tutte</button>' +
-        decades.map(d => `<button class="filter-btn" data-value="${d}" onclick="onDecadeChange(this, '${d}')">${decadeLabel(d)}</button>`).join('');
+      decadeWrap.innerHTML = decades.map(d => `<button class="filter-btn" data-value="${d}" onclick="onDecadeToggle(this, '${d}')">${decadeLabel(d)}</button>`).join('');
 
       const countryWrap = document.getElementById('filtersCountry');
-      countryWrap.innerHTML = '<button class="filter-btn active" data-value="all" onclick="onCountryChange(this, \'all\')">Tutte</button>' +
-        countries.map(c => `<button class="filter-btn" data-value="${c}" onclick="onCountryChange(this, '${c}')">${c}</button>`).join('');
+      countryWrap.innerHTML = countries.map(c => `<button class="filter-btn" data-value="${c}" onclick="onCountryToggle(this, '${c}')">${c}</button>`).join('');
 
       const temaSelect = document.getElementById('filterTema');
-      temaSelect.innerHTML = '<option value="all">Tutti</option>' +
+      temaSelect.innerHTML = '<option value="all">Tema: tutti</option>' +
         temi.map(t => `<option value="${escapeHtml(t)}">${escapeHtml(t)}</option>`).join('');
+
+      const genereSelect = document.getElementById('filterGenere');
+      genereSelect.innerHTML = '<option value="all">Genere: tutti</option>' +
+        generi.map(g => `<option value="${escapeHtml(g)}">${escapeHtml(g)}</option>`).join('');
+      genereSelect.style.display = generi.length ? '' : 'none';
 
       // Mostra i filtri solo se c'e' davvero qualcosa su cui filtrare
       document.getElementById('filterWrapper').style.display = songs.length ? 'flex' : 'none';
     }
 
-    function setActiveButton(container, btn) {
-      container.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    }
-
-    function onDecadeChange(btn, value) {
-      setActiveButton(document.getElementById('filtersDecade'), btn);
-      currentDecade = value;
+    function onDecadeToggle(btn, value) {
+      btn.classList.toggle('active');
+      if (selectedDecades.has(value)) selectedDecades.delete(value); else selectedDecades.add(value);
       expanded = false;
       applyVisibility();
     }
 
-    function onCountryChange(btn, value) {
-      setActiveButton(document.getElementById('filtersCountry'), btn);
-      currentCountry = value;
+    function onCountryToggle(btn, value) {
+      btn.classList.toggle('active');
+      if (selectedCountries.has(value)) selectedCountries.delete(value); else selectedCountries.add(value);
       expanded = false;
       applyVisibility();
     }
 
     function onTemaChange(value) {
       currentTema = value;
+      expanded = false;
+      applyVisibility();
+    }
+
+    function onGenereChange(value) {
+      currentGenere = value;
       expanded = false;
       applyVisibility();
     }
@@ -370,11 +381,13 @@
         const tags = (card.getAttribute('data-tags') || '').split('|');
         const decade = card.getAttribute('data-decade') || '';
         const country = card.getAttribute('data-country') || '';
+        const genere = card.getAttribute('data-genere') || '';
 
         const matches =
-          (currentDecade === 'all' || decade === currentDecade) &&
-          (currentCountry === 'all' || country === currentCountry) &&
-          (currentTema === 'all' || tags.includes(currentTema));
+          (selectedDecades.size === 0 || selectedDecades.has(decade)) &&
+          (selectedCountries.size === 0 || selectedCountries.has(country)) &&
+          (currentTema === 'all' || tags.includes(currentTema)) &&
+          (currentGenere === 'all' || genere === currentGenere);
 
         if (!matches) {
           card.style.display = 'none';
