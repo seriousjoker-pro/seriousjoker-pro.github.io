@@ -23,17 +23,21 @@
       <p>Promuovere una cultura musicale inclusiva e consapevole. Frammenti di canzoni, storie dimenticate e spunti di riflessione per guardare oltre il ritmo.</p>
     </header>
 
-    <!-- SEZIONE BOTTONI DI FILTRO -->
-    <div class="filter-wrapper">
-      <div class="filter-label">Filtra per:</div>
-      <div class="filters">
-        <button class="filter-btn active" onclick="filterCards('all', event)">Tutte</button>
-        <button class="filter-btn" onclick="filterCards('ita', event)">Italiana</button>
-        <button class="filter-btn" onclick="filterCards('int', event)">Internazionale</button>
-        <button class="filter-btn" onclick="filterCards('70s', event)">Anni '70</button>
-        <button class="filter-btn" onclick="filterCards('80s', event)">Anni '80</button>
-        <button class="filter-btn" onclick="filterCards('pop', event)">Pop</button>
-        <button class="filter-btn" onclick="filterCards('rock', event)">Rock</button>
+    <!-- SEZIONE FILTRI: generata dinamicamente in base alle canzoni caricate (vedi buildFilters in JS) -->
+    <div class="filter-wrapper" id="filterWrapper" style="display:none;">
+      <div class="filter-row">
+        <span class="filter-label">Decade:</span>
+        <div class="filters" id="filtersDecade"></div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">Provenienza:</span>
+        <div class="filters" id="filtersCountry"></div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">Tema:</span>
+        <select id="filterTema" onchange="onTemaChange(this.value)">
+          <option value="all">Tutti</option>
+        </select>
       </div>
     </div>
 
@@ -100,6 +104,28 @@
       return div.innerHTML;
     }
 
+    // Formattazione minima "in stile markdown" per il testo del post, scritto in un
+    // semplice campo di testo nella dashboard (niente editor visuale li'):
+    // **testo** -> grassetto, *testo* -> corsivo. Sempre a partire da testo gia' escapato.
+    function formatInline(line) {
+      let html = escapeHtml(line);
+      html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+      html = html.replace(/(^|[^*])\*([^*]+)\*(?!\*)/g, '$1<em>$2</em>');
+      return html;
+    }
+
+    // Un "paragrafo" (blocco separato da riga vuota) diventa un elenco puntato se
+    // tutte le sue righe iniziano con "- " o "* ", altrimenti un normale <p> con <br>
+    // tra le righe interne.
+    function renderParagraph(paragraph) {
+      const lines = paragraph.split('\n').map(l => l.trim()).filter(Boolean);
+      const isList = lines.length > 0 && lines.every(l => /^[-*]\s+/.test(l));
+      if (isList) {
+        return '<ul>' + lines.map(l => '<li>' + formatInline(l.replace(/^[-*]\s+/, '')) + '</li>').join('') + '</ul>';
+      }
+      return '<p>' + paragraph.split('\n').map(formatInline).join('<br>') + '</p>';
+    }
+
     // Caricamento dinamico dei dati dal file JSON
     async function loadSongs() {
       try {
@@ -109,6 +135,7 @@
         }
         const songs = await response.json();
         renderCards(songs);
+        buildFilters(songs);
         applyVisibility();
       } catch (error) {
         console.error("Errore:", error);
@@ -130,7 +157,9 @@
 
         const card = document.createElement('div');
         card.className = 'card';
-        card.setAttribute('data-tags', (song.tags || []).join(' '));
+        card.setAttribute('data-decade', song.decade || '');
+        card.setAttribute('data-country', song.country || '');
+        card.setAttribute('data-tags', (song.tags || []).join('|'));
         card.setAttribute('title', artist + ' – ' + title);
         card.setAttribute('onclick', 'openCardModal(' + idx + ', this)');
 
@@ -164,17 +193,9 @@
       // Ripiega sui vecchi campi solo per compatibilita' con dati piu' datati.
       const rawContent = song.content || song.reflection || song.post || "Contenuto non disponibile.";
       const paragraphs = rawContent.split(/\n{2,}/).map(p => p.trim()).filter(Boolean);
-      let postBodyHTML = paragraphs.map(p => `<p>${escapeHtml(p).replace(/\n/g, '<br>')}</p>`).join('');
+      let postBodyHTML = paragraphs.map(renderParagraph).join('');
 
       postBodyHTML += `<p style="font-weight: bold; margin-top: 15px; font-size: 0.8rem; color: #da3c6c;">E voi... lo sapevate?</p>`;
-
-      // Front-matter simmetrico 2x2: Titolo/Artista sulla prima riga, Anno/Album sulla seconda.
-      const metaSpans = [
-        `<span>🎵 <strong>Titolo:</strong> ${title}</span>`,
-        `<span>👩🏻‍🎤 <strong>Artista:</strong> ${artist}</span>`,
-        `<span>📅 <strong>Anno:</strong> ${year || 'N/A'}</span>`,
-        `<span>💿 <strong>Album:</strong> ${album || 'N/A'}</span>`
-      ];
 
       const linksHTML = [
         spotifyLink ? `<a href="${spotifyLink}" target="_blank" class="btn-spotify">▶ Spotify</a>` : '',
@@ -185,8 +206,14 @@
       document.getElementById('cardModalFrontImg').src = cover;
       document.getElementById('cardModalFrontImg').alt = artist + ' - ' + title;
 
+      // Frontmatter ridotto a una riga leggera: artista/titolo/anno sono gia' visibili
+      // sulla copertina (faccia fronte) e spesso ripetuti anche nel testo del post,
+      // quindi qui basta un richiamo minimo invece della vecchia tabella 2x2.
+      const subtitle = [artist, year].filter(Boolean).join(' · ');
+
       document.getElementById('cardModalContent').innerHTML = `
-        <div class="post-header-meta">${metaSpans.join('')}</div>
+        <h3 class="post-title">${escapeHtml(title)}</h3>
+        ${subtitle ? `<div class="post-subtitle">${escapeHtml(subtitle)}</div>` : ''}
         <div class="post-body">${postBodyHTML}</div>
         <div class="post-footer">
           <img class="mini-spotify-code" src="${spotifyCode}" alt="Spotify Code">
@@ -270,31 +297,84 @@
       if (e.key === 'Escape') closeCardModal();
     });
 
-    // Gestione dei filtri + limite di card visibili con "Mostra altre"
+    // Gestione dei filtri + limite di card visibili con "Mostra altre".
+    // I filtri (decade, provenienza, tema) sono generati dinamicamente da buildFilters()
+    // in base a cosa e' effettivamente presente in songs.json: non c'e' nulla di fisso da
+    // aggiornare a mano quando arrivano canzoni di nuovi decenni o con nuovi temi.
     const CARD_LIMIT = 12;
-    let currentFilterTag = 'all';
+    let currentDecade = 'all';
+    let currentCountry = 'all';
+    let currentTema = 'all';
     let expanded = false;
 
-    function filterCards(tag, event) {
-      document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      event.currentTarget.classList.add('active');
+    function decadeSortKey(d) {
+      const n = parseInt(d, 10);
+      return isNaN(n) ? 9999 : n;
+    }
 
-      currentFilterTag = tag;
+    function buildFilters(songs) {
+      const decades = [...new Set(songs.map(s => s.decade).filter(Boolean))].sort((a, b) => decadeSortKey(a) - decadeSortKey(b));
+      const countries = [...new Set(songs.map(s => s.country).filter(Boolean))].sort();
+      const temi = [...new Set(songs.flatMap(s => s.tags || []))].sort((a, b) => a.localeCompare(b, 'it'));
+
+      const decadeLabel = d => "Anni " + d.replace('s', '').slice(-2) + "'";
+
+      const decadeWrap = document.getElementById('filtersDecade');
+      decadeWrap.innerHTML = '<button class="filter-btn active" data-value="all" onclick="onDecadeChange(this, \'all\')">Tutte</button>' +
+        decades.map(d => `<button class="filter-btn" data-value="${d}" onclick="onDecadeChange(this, '${d}')">${decadeLabel(d)}</button>`).join('');
+
+      const countryWrap = document.getElementById('filtersCountry');
+      countryWrap.innerHTML = '<button class="filter-btn active" data-value="all" onclick="onCountryChange(this, \'all\')">Tutte</button>' +
+        countries.map(c => `<button class="filter-btn" data-value="${c}" onclick="onCountryChange(this, '${c}')">${c}</button>`).join('');
+
+      const temaSelect = document.getElementById('filterTema');
+      temaSelect.innerHTML = '<option value="all">Tutti</option>' +
+        temi.map(t => `<option value="${escapeHtml(t)}">${escapeHtml(t)}</option>`).join('');
+
+      // Mostra i filtri solo se c'e' davvero qualcosa su cui filtrare
+      document.getElementById('filterWrapper').style.display = songs.length ? 'flex' : 'none';
+    }
+
+    function setActiveButton(container, btn) {
+      container.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function onDecadeChange(btn, value) {
+      setActiveButton(document.getElementById('filtersDecade'), btn);
+      currentDecade = value;
       expanded = false;
       applyVisibility();
     }
 
-    // Mostra solo le prime CARD_LIMIT card che rispettano il filtro attivo;
+    function onCountryChange(btn, value) {
+      setActiveButton(document.getElementById('filtersCountry'), btn);
+      currentCountry = value;
+      expanded = false;
+      applyVisibility();
+    }
+
+    function onTemaChange(value) {
+      currentTema = value;
+      expanded = false;
+      applyVisibility();
+    }
+
+    // Mostra solo le prime CARD_LIMIT card che rispettano i filtri attivi;
     // le altre restano nascoste finché non si preme "Mostra altre".
     function applyVisibility() {
       const cards = document.querySelectorAll('.card');
       let totalMatching = 0;
 
       cards.forEach(card => {
-        const tags = (card.getAttribute('data-tags') || '').split(' ');
-        const matches = currentFilterTag === 'all' || tags.includes(currentFilterTag);
+        const tags = (card.getAttribute('data-tags') || '').split('|');
+        const decade = card.getAttribute('data-decade') || '';
+        const country = card.getAttribute('data-country') || '';
+
+        const matches =
+          (currentDecade === 'all' || decade === currentDecade) &&
+          (currentCountry === 'all' || country === currentCountry) &&
+          (currentTema === 'all' || tags.includes(currentTema));
 
         if (!matches) {
           card.style.display = 'none';
