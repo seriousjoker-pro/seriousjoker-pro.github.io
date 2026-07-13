@@ -226,9 +226,9 @@ header p {
 }
 
 /* MODALE: mostra il "retro" grande e centrato, una card alla volta.
-   Il modale "nasce" dalla card cliccata (animazione FLIP gestita in JS). */
+   Il modale "nasce" dalla card cliccata, ruotando e crescendo (animazione gestita in JS). */
 .card-modal-overlay {
-  display: flex;
+  display: none;
   position: fixed;
   inset: 0;
   background: rgba(15, 6, 11, 0.78);
@@ -236,15 +236,11 @@ header p {
   align-items: center;
   justify-content: center;
   padding: 24px;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+  perspective: 1600px;
 }
 
 .card-modal-overlay.active {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.25s ease;
+  display: flex;
 }
 
 .card-modal {
@@ -261,6 +257,7 @@ header p {
   text-align: left;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
   transform-origin: center;
+  backface-visibility: hidden;
 }
 
 .card-modal-close {
