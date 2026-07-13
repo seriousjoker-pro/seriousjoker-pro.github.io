@@ -243,36 +243,65 @@ header p {
   display: flex;
 }
 
-.card-modal {
+/* Il "flipper" è l'elemento che ruota davvero in 3D: contiene le due facce
+   (fronte = copertina, retro = post) sovrapposte, ciascuna visibile solo
+   quando è rivolta verso lo spettatore (backface-visibility: hidden). */
+.card-modal-flipper {
   position: relative;
   width: 100%;
   max-width: 640px;
-  max-height: 88vh;
-  overflow-y: auto;
+  height: min(80vh, 680px);
+  transform-style: preserve-3d;
+  transform-origin: center;
+}
+
+.card-modal-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+}
+
+.card-modal-face-front {
+  background-color: #1a0b20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba(218, 60, 108, 0.3);
+}
+
+.card-modal-face-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.card-modal-face-back {
+  transform: rotateY(180deg);
   background-color: #1a0b20;
   color: #ffffff;
   border: 1px solid rgba(218, 60, 108, 0.3);
-  border-radius: 10px;
   padding: 24px;
   text-align: left;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
-  transform-origin: center;
-  backface-visibility: hidden;
+  overflow-y: auto;
 }
 
 .card-modal-close {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 16px;
+  right: 16px;
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #ffffff;
   font-size: 20px;
   line-height: 1;
   cursor: pointer;
+  z-index: 1001;
   transition: background 0.2s ease, border-color 0.2s ease;
 }
 
@@ -331,11 +360,11 @@ header p {
   color: #da3c6c;
 }
 
-.card-modal::-webkit-scrollbar {
+.card-modal-face-back::-webkit-scrollbar {
   width: 6px;
 }
 
-.card-modal::-webkit-scrollbar-thumb {
+.card-modal-face-back::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 3px;
 }
@@ -355,14 +384,20 @@ header p {
   object-fit: contain;
 }
 
-.btn-spotify {
+.post-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.btn-spotify,
+.btn-youtube {
   display: inline-flex;
   align-items: center;
-  background-color: #1DB954;
   color: white;
   text-decoration: none;
   padding: 5px 10px;
-  border-radius: 0;
+  border-radius: 4px;
   font-size: 0.7rem;
   font-weight: 700;
   transition: background-color 0.2s;
@@ -370,8 +405,20 @@ header p {
   letter-spacing: 0.05em;
 }
 
+.btn-spotify {
+  background-color: #1DB954;
+}
+
 .btn-spotify:hover {
   background-color: #1ed760;
+}
+
+.btn-youtube {
+  background-color: #FF0000;
+}
+
+.btn-youtube:hover {
+  background-color: #ff3333;
 }
 
 /* FOOTER (sfondo chiaro coerente con l'header, accento rosa in alto) */

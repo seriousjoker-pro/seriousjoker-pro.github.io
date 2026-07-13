@@ -49,11 +49,14 @@
 
   </div> <!-- FINE CONTENITORE CENTRATO -->
 
-  <!-- MODALE: mostra il "retro" di una sola card alla volta, grande e centrato -->
+  <!-- MODALE: la card si "gira" davvero (fronte = copertina, retro = post), crescendo al centro -->
   <div class="card-modal-overlay" id="cardModalOverlay" onclick="closeCardModalOnBackdrop(event)">
-    <div class="card-modal">
-      <button class="card-modal-close" onclick="closeCardModal()" aria-label="Chiudi">&times;</button>
-      <div id="cardModalContent"></div>
+    <button class="card-modal-close" onclick="closeCardModal()" aria-label="Chiudi">&times;</button>
+    <div class="card-modal-flipper" id="cardModal">
+      <div class="card-modal-face card-modal-face-front">
+        <img id="cardModalFrontImg" src="" alt="">
+      </div>
+      <div class="card-modal-face card-modal-face-back" id="cardModalContent"></div>
     </div>
   </div>
 
@@ -154,7 +157,8 @@
       const album = song.album || "";
       const cover = song.cover || "";
       const spotifyCode = song.spotify_code || "";
-      const spotifyLink = song.spotify_link || "#";
+      const spotifyLink = song.spotify_link || "";
+      const youtubeLink = song.youtube_link || "";
 
       // Testo del post: usa il contenuto completo scritto nella dashboard (song.content).
       // Ripiega sui vecchi campi solo per compatibilita' con dati piu' datati.
@@ -164,79 +168,84 @@
 
       postBodyHTML += `<p style="font-weight: bold; margin-top: 15px; font-size: 0.8rem; color: #da3c6c;">E voi... lo sapevate?</p>`;
 
+      // Front-matter simmetrico 2x2: Titolo/Artista sulla prima riga, Anno/Album sulla seconda.
       const metaSpans = [
-        `<span style="grid-column: span 2;">🎵 <strong>Titolo:</strong> ${title}</span>`,
+        `<span>🎵 <strong>Titolo:</strong> ${title}</span>`,
         `<span>👩🏻‍🎤 <strong>Artista:</strong> ${artist}</span>`,
-        `<span>📅 <strong>Anno:</strong> ${year || 'N/A'}</span>`
+        `<span>📅 <strong>Anno:</strong> ${year || 'N/A'}</span>`,
+        `<span>💿 <strong>Album:</strong> ${album || 'N/A'}</span>`
       ];
-      if (album) {
-        metaSpans.push(`<span style="grid-column: span 2;">💿 <strong>Album:</strong> ${album}</span>`);
-      }
+
+      const linksHTML = [
+        spotifyLink ? `<a href="${spotifyLink}" target="_blank" class="btn-spotify">▶ Spotify</a>` : '',
+        youtubeLink ? `<a href="${youtubeLink}" target="_blank" class="btn-youtube">▶ YouTube</a>` : ''
+      ].join('');
+
+      // Faccia "fronte" del flipper: stessa immagine della card cliccata (continuita' visiva)
+      document.getElementById('cardModalFrontImg').src = cover;
+      document.getElementById('cardModalFrontImg').alt = artist + ' - ' + title;
 
       document.getElementById('cardModalContent').innerHTML = `
-        <img class="card-modal-cover" src="${cover}" alt="${artist} - ${title}">
         <div class="post-header-meta">${metaSpans.join('')}</div>
         <div class="post-body">${postBodyHTML}</div>
         <div class="post-footer">
           <img class="mini-spotify-code" src="${spotifyCode}" alt="Spotify Code">
-          <a href="${spotifyLink}" target="_blank" class="btn-spotify">Ascolta</a>
+          <div class="post-links">${linksHTML}</div>
         </div>
       `;
 
       const overlay = document.getElementById('cardModalOverlay');
-      const modal = overlay.querySelector('.card-modal');
+      const flipper = document.getElementById('cardModal');
 
       overlay.classList.add('active');
       document.body.style.overflow = 'hidden';
 
-      // Animazione: il modale "nasce" dalla posizione/dimensione della card cliccata,
-      // gira su se stesso (come una carta che si volta) e cresce fino a diventare
-      // grande e centrato.
+      // Animazione: il flipper nasce dalla posizione/dimensione della card cliccata
+      // (mostrando la stessa copertina, faccia "fronte"), poi cresce e gira di 180°
+      // fino a mostrare il "retro" (il post) grande e centrato.
       if (sourceCardEl) {
         const startRect = sourceCardEl.getBoundingClientRect();
-        const endRect = modal.getBoundingClientRect();
+        const endRect = flipper.getBoundingClientRect();
 
         const scaleX = startRect.width / endRect.width;
         const scaleY = startRect.height / endRect.height;
         const translateX = (startRect.left + startRect.width / 2) - (endRect.left + endRect.width / 2);
         const translateY = (startRect.top + startRect.height / 2) - (endRect.top + endRect.height / 2);
 
-        modal.style.transition = 'none';
-        modal.style.opacity = '0.4';
-        modal.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scaleX}, ${scaleY}) rotateY(-80deg)`;
+        flipper.style.transition = 'none';
+        flipper.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scaleX}, ${scaleY}) rotateY(0deg)`;
 
         // forza il reflow prima di animare, altrimenti il browser "salta" lo stato iniziale
-        void modal.offsetWidth;
+        void flipper.offsetWidth;
 
         requestAnimationFrame(() => {
-          modal.style.transition = 'transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease';
-          modal.style.transform = 'translate(0, 0) scale(1, 1) rotateY(0deg)';
-          modal.style.opacity = '1';
+          flipper.style.transition = 'transform 0.6s cubic-bezier(0.22, 0.75, 0.2, 1)';
+          flipper.style.transform = 'translate(0, 0) scale(1, 1) rotateY(180deg)';
         });
       } else {
-        modal.style.transition = '';
-        modal.style.transform = '';
-        modal.style.opacity = '';
+        // Nessuna card di origine (fallback): mostra direttamente il retro, senza animare
+        flipper.style.transition = 'none';
+        flipper.style.transform = 'rotateY(180deg)';
       }
     }
 
     function closeCardModal() {
       const overlay = document.getElementById('cardModalOverlay');
-      const modal = overlay.querySelector('.card-modal');
+      const flipper = document.getElementById('cardModal');
 
       // Reset "pulito": nasconde subito il modale e azzera gli stili inline,
       // cosi' la prossima apertura riparte da uno stato noto (niente flash residui).
       const finish = () => {
         overlay.classList.remove('active');
         document.body.style.overflow = '';
-        modal.style.transition = 'none';
-        modal.style.transform = 'none';
-        modal.style.opacity = '0';
+        flipper.style.transition = 'none';
+        flipper.style.transform = 'none';
       };
 
-      // Animazione di chiusura: il modale gira e si rimpicciolisce verso la card di origine
+      // Animazione di chiusura: il flipper gira all'indietro (torna a mostrare il "fronte",
+      // la copertina) mentre si rimpicciolisce verso la card di origine.
       if (sourceCardEl) {
-        const startRect = modal.getBoundingClientRect();
+        const startRect = flipper.getBoundingClientRect();
         const endRect = sourceCardEl.getBoundingClientRect();
 
         const scaleX = endRect.width / startRect.width;
@@ -244,11 +253,10 @@
         const translateX = (endRect.left + endRect.width / 2) - (startRect.left + startRect.width / 2);
         const translateY = (endRect.top + endRect.height / 2) - (startRect.top + startRect.height / 2);
 
-        modal.style.transition = 'transform 0.35s ease, opacity 0.3s ease';
-        modal.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scaleX}, ${scaleY}) rotateY(80deg)`;
-        modal.style.opacity = '0.4';
+        flipper.style.transition = 'transform 0.5s cubic-bezier(0.22, 0.75, 0.2, 1)';
+        flipper.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scaleX}, ${scaleY}) rotateY(0deg)`;
 
-        setTimeout(finish, 350);
+        setTimeout(finish, 500);
       } else {
         finish();
       }
