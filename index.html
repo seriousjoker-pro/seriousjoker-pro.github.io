@@ -320,11 +320,24 @@
       return century === '19' ? "Anni '" + shortYear : "Anni " + century + shortYear;
     }
 
+    // Conta quante volte compare ciascun valore tra le canzoni caricate, per poterli
+    // ordinare per rilevanza (i piu' usati in dashboard prima) invece che alfabeticamente.
+    function countOccurrences(values) {
+      const counts = new Map();
+      values.forEach(v => { if (v) counts.set(v, (counts.get(v) || 0) + 1); });
+      return counts;
+    }
+
+    function sortByRelevance(values) {
+      const counts = countOccurrences(values);
+      return [...counts.keys()].sort((a, b) => counts.get(b) - counts.get(a) || a.localeCompare(b, 'it'));
+    }
+
     function buildFilters(songs) {
       const decades = [...new Set(songs.map(s => s.decade).filter(Boolean))].sort((a, b) => decadeSortKey(a) - decadeSortKey(b));
       const countries = [...new Set(songs.map(s => s.country).filter(Boolean))].sort();
-      const temi = [...new Set(songs.flatMap(s => s.tags || []))].sort((a, b) => a.localeCompare(b, 'it'));
-      const generi = [...new Set(songs.map(s => s.genere).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'it'));
+      const temi = sortByRelevance(songs.flatMap(s => s.tags || []));
+      const generi = sortByRelevance(songs.map(s => s.genere));
 
       const decadeWrap = document.getElementById('filtersDecade');
       decadeWrap.innerHTML = decades.map(d => `<button class="filter-btn" data-value="${d}" onclick="onDecadeToggle(this, '${d}')">${decadeLabel(d)}</button>`).join('');

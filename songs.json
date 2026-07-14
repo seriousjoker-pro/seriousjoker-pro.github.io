@@ -11,6 +11,7 @@
     "youtube_link": "https://www.youtube.com/watch?v=qTbl61hq-x8",
     "decade": "1970s",
     "country": "Italia",
+    "genere": "rock",
     "tags": [
       "rivoluzionaria",
       "ruoli imposti",
@@ -32,6 +33,7 @@
     "youtube_link": "https://www.youtube.com/watch?v=wp43OdtAAkM",
     "decade": "1980s",
     "country": "Estero",
+    "genere": "indie",
     "tags": [
       "empatia",
       "classico"
@@ -52,6 +54,7 @@
     "youtube_link": "https://www.youtube.com/watch?v=G7KNmW9a75Y&pp=ygUHZmxvd2Vycw%3D%3D",
     "decade": "2020s",
     "country": "Estero",
+    "genere": "disco",
     "tags": [
       "autosufficienza emotiva",
       "femminista"
@@ -72,6 +75,7 @@
     "youtube_link": "https://www.youtube.com/watch?v=mAXLeF_hpmk",
     "decade": "1970s",
     "country": "Italia",
+    "genere": "dance",
     "tags": [
       "rivoluzionaria",
       "autonomia"
@@ -92,6 +96,7 @@
     "youtube_link": "https://www.youtube.com/watch?v=UbxUSsFXYo4&pp=ygUGOSB0byA1",
     "decade": "1980s",
     "country": "Estero",
+    "genere": "pop",
     "tags": [
       "femminista",
       "lavoro"
@@ -154,6 +159,7 @@
     "youtube_link": "https://youtu.be/9GkVhgIeGJQ?si=SHif9s5GQA8H-sA1",
     "decade": "1970s",
     "country": "Estero",
+    "genere": "rock",
     "tags": [
       "mascolinità",
       "stereotipi di genere",
