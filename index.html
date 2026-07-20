@@ -119,7 +119,7 @@
     }
 
     // Un "paragrafo" (blocco separato da riga vuota) diventa un elenco puntato se
-    // tutte le suas righe iniziano con "- " o "* ", altrimenti un normale <p> con <br>
+    // tutte le sue righe iniziano con "- " o "* ", altrimenti un normale <p> con <br>
     // tra le righe interne.
     function renderParagraph(paragraph) {
       const lines = paragraph.split('\n').map(l => l.trim()).filter(Boolean);
@@ -263,7 +263,7 @@
       }
     }
 
-    function closeModal() {
+    function closeCardModal() {
       const overlay = document.getElementById('cardModalOverlay');
       const flipper = document.getElementById('cardModal');
 
