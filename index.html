@@ -110,8 +110,16 @@
       return html;
     }
 
+    function fmtDateIT(iso) {
+      if (!iso) return '';
+      const d = new Date(iso + 'T00:00:00');
+      if (isNaN(d)) return iso;
+      const mesi = ['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
+      return d.getDate() + ' ' + mesi[d.getMonth()] + ' ' + d.getFullYear();
+    }
+
     // Un "paragrafo" (blocco separato da riga vuota) diventa un elenco puntato se
-    // tutte le sue righe iniziano con "- " o "* ", altrimenti un normale <p> con <br>
+    // tutte le suas righe iniziano con "- " o "* ", altrimenti un normale <p> con <br>
     // tra le righe interne.
     function renderParagraph(paragraph) {
       const lines = paragraph.split('\n').map(l => l.trim()).filter(Boolean);
@@ -180,11 +188,11 @@
       const artist = song.artist || "Sconosciuto";
       const title = song.title || "Brano senza titolo";
       const year = song.year || "";
-      const album = song.album || "";
       const cover = song.cover || "";
       const spotifyCode = song.spotify_code || "";
       const spotifyLink = song.spotify_link || "";
       const youtubeLink = song.youtube_link || "";
+      const date = song.date || "";
 
       // Testo del post: usa il contenuto completo scritto nella dashboard (song.content).
       // Ripiega sui vecchi campi solo per compatibilita' con dati piu' datati.
@@ -203,14 +211,16 @@
       document.getElementById('cardModalFrontImg').src = cover;
       document.getElementById('cardModalFrontImg').alt = artist + ' - ' + title;
 
-      // Frontmatter ridotto a una riga leggera: artista/titolo/anno sono gia' visibili
-      // sulla copertina (faccia fronte) e spesso ripetuti anche nel testo del post,
-      // quindi qui basta un richiamo minimo invece della vecchia tabella 2x2.
+      // Frontmatter ridotto a una riga leggera con titolo, sottotitolo e la data posizionata in alto a destra
       const subtitle = [artist, year].filter(Boolean).join(' · ');
+      const dateStr = fmtDateIT(date);
 
       document.getElementById('cardModalContent').innerHTML = `
-        <h3 class="post-title">${escapeHtml(title)}</h3>
-        ${subtitle ? `<div class="post-subtitle">${escapeHtml(subtitle)}</div>` : ''}
+        <div class="post-header-wrap" style="position: relative; padding-right: 130px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px; margin-bottom: 16px;">
+          <h3 class="post-title" style="margin: 0; font-size: 1.25rem; font-weight: 700; line-height: 1.3;">${escapeHtml(title)}</h3>
+          ${subtitle ? `<div class="post-subtitle" style="margin-top: 4px; font-size: 0.85rem; color: rgba(255,255,255,0.7);">${escapeHtml(subtitle)}</div>` : ''}
+          ${dateStr ? `<div class="post-date" style="position: absolute; top: 2px; right: 0; font-size: 0.75rem; color: var(--muted); text-align: right; white-space: nowrap;">📅 ${escapeHtml(dateStr)}</div>` : ''}
+        </div>
         <div class="post-body">${postBodyHTML}</div>
         <div class="post-footer">
           <img class="mini-spotify-code" src="${spotifyCode}" alt="Spotify Code">
@@ -253,7 +263,7 @@
       }
     }
 
-    function closeCardModal() {
+    function closeModal() {
       const overlay = document.getElementById('cardModalOverlay');
       const flipper = document.getElementById('cardModal');
 
@@ -372,6 +382,7 @@
       applyVisibility();
     }
 
+    // Gestione della modale con click su tasto esterno
     function onTemaChange(value) {
       currentTema = value;
       expanded = false;
