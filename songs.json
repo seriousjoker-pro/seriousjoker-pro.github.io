@@ -145,6 +145,28 @@
   },
   {
     "id": 7,
+    "artist": "No Doubt",
+    "title": "Just a Girl",
+    "year": "1995",
+    "album": "Tragic Kingdom",
+    "cover": "copertine/no_doubt_just_a_girl.png",
+    "spotify_code": "spotify_codes/no_doubt_just_a_girl_spotify_code.png",
+    "spotify_link": "https://open.spotify.com/intl-it/track/5lWRaa0fBxDE5yU91npPq7",
+    "youtube_link": "https://www.youtube.com/watch?v=PHzOOQfhPFg&pp=ygULanVzdCBhIGdpcmw%3D",
+    "decade": "1990s",
+    "country": "Estero",
+    "genere": "pop-punk",
+    "tags": [
+      "femminista",
+      "divisiva"
+    ],
+    "content": "In questi giorni sto guardando **Elle**, il prequel di **Legally Blonde** su Prime Video. A un certo punto la protagonista, dopo un momento difficile, sale su un palco improvvisato e canta una canzone che sicuramente tutti abbiamo sentito almeno una volta.\n\nE grazie al telefilm ho iniziato ad ascoltarla diversamente.. succede spesso con la musica: pensiamo di conoscere un brano da anni, poi basta risentirlo nel contesto giusto e ci accorgiamo che stava raccontando molto più di quello che avevamo ascoltato.\nOggi vi parlo di:\n\n🎧 **Just a Girl**\n👤 **No Doubt**\n📅 **1995**\n💿 *Tragic Kingdom*\n\n**Curiosità**: Gwen Stefani ha raccontato di aver scritto questa canzone dopo che suo padre, con le migliori intenzioni, le disse di fare attenzione perché \"non era sicuro per una ragazza\" uscire da sola. Quella frase le fece scattare una domanda: quante volte limitiamo la libertà di una persona semplicemente perché appartiene a un determinato genere? Da quella riflessione nacque uno dei brani simbolo degli anni Novanta.\n\n**Perché ne parliamo su EquaVoce?** Perché Just a Girl non è una canzone contro gli uomini. È una canzone contro gli stereotipi.\n\nDietro un riff trascinante e un ritornello che sembra quasi giocoso, Gwen Stefani usa l'ironia per mettere in discussione un'idea ancora molto diffusa: che una ragazza debba essere protetta, accompagnata, limitata \"per il suo bene\". È un paternalismo spesso inconsapevole, che nasce anche dalle migliori intenzioni, ma che rischia comunque di trasformarsi in un confine. Il titolo stesso è una provocazione.\n\n*\"I'm just a girl...\"*\n\nNon significa \"sono solo una ragazza\". Significa piuttosto:\n\n*\"Davvero? È tutto quello che vedete?\"*\n\nForse è anche per questo che, a trent'anni dalla sua uscita, continua a sembrare così attuale. Non perché gli stereotipi siano rimasti identici, ma perché hanno semplicemente cambiato forma.\n\n🎧 Se avete qualche minuto, ascoltatela facendo attenzione alle parole. È una di quelle canzoni che fanno ballare... e poi fanno pensare.\n\n**E voi... lo sapevate?**",
+    "curiosity": "Gwen Stefani la scrisse dopo essersi resa conto di quanto suo padre e il suo ragazzo dell'epoca la trattassero come fragile solo perche' donna.",
+    "quote": "Oh, I'm having so much fun... but you're taking all the fun away.",
+    "date": "2026-09-28"
+  },
+  {
+    "id": 8,
     "artist": "Patty Pravo",
     "title": "La bambola",
     "year": "1968",
@@ -167,7 +189,7 @@
     "date": "2026-08-24"
   },
   {
-    "id": 8,
+    "id": 9,
     "artist": "Lucio Battisti",
     "title": "Una donna per amico",
     "year": "1978",
@@ -190,7 +212,7 @@
     "date": ""
   },
   {
-    "id": 9,
+    "id": 10,
     "artist": "The Cure",
     "title": "Boy's Don't Cry",
     "year": "1979",
@@ -220,7 +242,7 @@
     "date": "2026-07-15"
   },
   {
-    "id": 10,
+    "id": 11,
     "artist": "Meredith Brooks",
     "title": "Bitch",
     "year": "1997",
@@ -245,7 +267,7 @@
     "date": "2026-08-31"
   },
   {
-    "id": 11,
+    "id": 12,
     "artist": "Levante",
     "title": "Tikibombom",
     "year": "2020",
