@@ -99,6 +99,28 @@
   },
   {
     "id": 5,
+    "artist": "R.E.M.",
+    "title": "Everybody Hurts",
+    "year": "1992",
+    "album": "Automatic for the People",
+    "cover": "copertine/r_e_m_everybody_hurts.png",
+    "spotify_code": "spotify_codes/r_e_m_everybody_hurts_spotify_code.png",
+    "spotify_link": "https://open.spotify.com/intl-it/track/6PypGyiu0Y2lCDBN1XZEnP",
+    "youtube_link": "https://www.youtube.com/watch?v=5rOiW_xY-kc",
+    "decade": "1990s",
+    "country": "Estero",
+    "genere": "Indie",
+    "tags": [
+      "maschilita'",
+      "vulnerabilita'"
+    ],
+    "content": "La scorsa puntata abbiamo parlato di Strong Enough di Sheryl Crow, e di come la forza in una relazione non coincida con il potere. Di come la vera resistenza stia nel saper stare accanto a qualcuno senza sentirsi minacciati dalla sua libertà.\n\nMa c'è un passaggio che quella canzone lasciava in sospeso.\nPerché per riuscire a essere \"forti\" con l'altro, in quel modo, bisogna prima riuscire a esserlo con sé stessi. E la forza più difficile, forse, è quella di ammettere che non ce la si fa da soli.\nOggi vi parlo di una canzone che, trent'anni fa, ha provato a dirlo in un linguaggio che il rock non usava quasi mai.\n\nSiamo nel 1992. Il rock è ancora un territorio in cui la mascolinità si misura in decibel, distorsione e distanza emotiva. Grunge, alternative, metal: ovunque l'immagine dell'uomo forte passa attraverso l'indifferenza, la rabbia o al massimo la malinconia romantica. Poi arrivano questi quattro di Athens, Georgia, e pubblicano una ballata lenta, pacata, quasi di conforto, in cui un uomo canta a un altro uomo che sta cadendo.\n\n🎧 **Everybody Hurts**\n👤 **R.E.M.**\n📅 **1992**\n💿 *Automatic for the People*\n\n**Curiosità**: Michael Stipe ha raccontato di averla scritta pensando esplicitamente ai ragazzi che vedono il suicidio come unica via d'uscita. In un'intervista ha detto che voleva creare un brano che dicesse, letteralmente: è permesso soffrire. Ed è permesso chiedere aiuto.\n\n**Perché ne parliamo su EquaVoce?** Perché questa canzone risponde a una domanda che Strong Enough aveva soltanto accennato. Sheryl Crow ci chiedeva: \"Are you strong enough to be my man?\" E ci ricordava che la forza nelle relazioni non coincide con il potere, ma con la capacità di fidarsi, di lasciare spazio, di non controllare. Ma per riuscirci, serve una premessa. Serve essere abbastanza forti da ammettere che anche noi, a volte, non ce la facciamo. Che anche noi abbiamo bisogno. Che la vera corazza non è quella che ci impedisce di sentire, ma quella che ci permette di dirlo ad alta voce.\n\nEverybody Hurts non parla di coppia. Parla di sé. E parla a chiunque stia cadendo:\n\n*\"When your day is long and the night, the night is yours alone...\"*\n\nNon c'è aggressività. Non c'è distacco da macho. C'è solo un riconoscimento: so che fa male, e non devi farcela da solo.\nLa canzone non promette che tutto passerà. Non dice \"smettila di piangere\" né \"sii forte\". Dice qualcosa di più difficile e più vero: tutti soffriamo. E il fatto di soffrire non ti rende diverso dagli altri. Ti rende esattamente come tutti gli altri.\n\nIn un certo senso è l'opposto esatto di Boys Don't Cry. Se i The Cure fotografavano la regola non scritta, non piangere, non mostrarti, tieni tutto dentro, i R.E.M. rispondono con un invito esplicito a uscire da quella regola. A lasciarsi cadere, a lasciarsi vedere, a lasciarsi aiutare.\n\nForse è per questo che, trent'anni dopo, il brano continua a essere così potente. Perché in un mondo che premia ancora l'autosufficienza, la performance della sicurezza, l'immagine dell'uomo che \"ce la fa sempre\", Everybody Hurts ricorda qualcosa di fondamentale:\nNon esiste persona forte che non abbia, a un certo punto, avuto bisogno di qualcuno che le dicesse \"anch'io\".\n\n🎧 Se non l'avete mai ascoltata con questa chiave, fatelo. E se invece la conoscete, provate a riascoltarla pensando a qualcuno a cui vorreste mandarla. A volte il gesto più forte che possiamo fare è proprio questo: ammettere che ferisce, e che ferisce a tutti.\n\n**E voi... lo sapevate?**",
+    "curiosity": "Michael Stipe la scrisse pensando esplicitamente ai ragazzi che pensano al suicidio come unica via d'uscita: un messaggio di permesso a chiedere aiuto.",
+    "quote": "Hold on, hold on",
+    "date": "2026-09-21"
+  },
+  {
+    "id": 6,
     "artist": "Dolly Parton",
     "title": "9 to 5",
     "year": "1980",
@@ -122,7 +144,7 @@
     "date": "2026-07-27"
   },
   {
-    "id": 6,
+    "id": 7,
     "artist": "Sheryl Crow",
     "title": "Strong Enough",
     "year": "1993",
@@ -144,7 +166,7 @@
     "date": "2026-09-14"
   },
   {
-    "id": 7,
+    "id": 8,
     "artist": "No Doubt",
     "title": "Just a Girl",
     "year": "1995",
@@ -166,7 +188,7 @@
     "date": "2026-09-28"
   },
   {
-    "id": 8,
+    "id": 9,
     "artist": "Patty Pravo",
     "title": "La bambola",
     "year": "1968",
@@ -189,7 +211,7 @@
     "date": "2026-08-24"
   },
   {
-    "id": 9,
+    "id": 10,
     "artist": "Lucio Battisti",
     "title": "Una donna per amico",
     "year": "1978",
@@ -212,7 +234,7 @@
     "date": ""
   },
   {
-    "id": 10,
+    "id": 11,
     "artist": "The Cure",
     "title": "Boy's Don't Cry",
     "year": "1979",
@@ -242,7 +264,7 @@
     "date": "2026-07-15"
   },
   {
-    "id": 11,
+    "id": 12,
     "artist": "Meredith Brooks",
     "title": "Bitch",
     "year": "1997",
@@ -267,7 +289,7 @@
     "date": "2026-08-31"
   },
   {
-    "id": 12,
+    "id": 13,
     "artist": "Levante",
     "title": "Tikibombom",
     "year": "2020",
