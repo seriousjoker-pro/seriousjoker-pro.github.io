@@ -189,6 +189,28 @@
   },
   {
     "id": 9,
+    "artist": "Zaz",
+    "title": "Je veux",
+    "year": "2010",
+    "album": "",
+    "cover": "copertine/zaz_je_veux.png",
+    "spotify_code": "spotify_codes/zaz_je_veux_spotify_code.png",
+    "spotify_link": "https://open.spotify.com/intl-it/track/734dz1YaFITwawPpM25fSt",
+    "youtube_link": "https://www.youtube.com/watch?v=0TFNGRYMz1U",
+    "decade": "2010s",
+    "country": "Estero",
+    "genere": "",
+    "tags": [
+      "autonomia",
+      "materialismo"
+    ],
+    "content": "In questi giorni mi è capitato di riascoltare una canzone francese che, ogni volta, riesce a mettermi di buon umore. È allegra, trascinante, impossibile da ascoltare senza battere il tempo... eppure, dietro quella leggerezza, nasconde un messaggio sorprendentemente attuale.\n\nO forse, a dire il vero, per me è un po' più di una semplice canzone. Nel 2010 stavo tornando in Italia dopo sette anni vissuti in Francia e ricordo di averla sentita in continuazione alla radio. Poi mi è sembrato che abbia avuto un discreto successo anche da noi, ma probabilmente chi ha vissuto in Francia in quegli anni la ricorda ancora meglio. **Oggi vi parlo di:**\n\n🎧 **Je veux**\n👤 **Zaz**\n📅 **2010**\n💿 **Zaz**\n\n**Curiosità**: Je veux è il brano che ha fatto conoscere Zaz in tutta Europa. Prima ancora del successo radiofonico, furono alcune esibizioni dal vivo e video diventati virali a far scoprire al grande pubblico quella voce così particolare, sospesa tra chanson, jazz manouche e pop.\n\n**Perché ne parliamo su EquaVoce?**\nPerché Je veux parla di libertà. Non della libertà di fare tutto, ma della libertà di non lasciare che siano gli altri a decidere che cosa dà valore a una persona.\n\nLa protagonista rifiuta ciò che, spesso, viene associato al successo: il lusso, gli status symbol, le apparenze. Non perché siano sbagliati in sé, ma perché non bastano a definire chi siamo. Il verso che preferisco è questo:\n\n*\"Je veux de l'amour, de la joie, de la bonne humeur...\"* \n\n*\"Io voglio amore, gioia e buonumore.\"* \n\nÈ una frase semplice, ma quasi rivoluzionaria. Perché sposta l'attenzione da ciò che abbiamo a ciò che siamo. E forse è proprio qui il legame con EquaVoce.\n\nPer troppo tempo il valore delle persone è stato misurato attraverso aspettative diverse: il successo economico, la carriera, l'aspetto fisico, il ruolo nella famiglia, il modo di vestirsi, il modo di comportarsi. *Je veux* ci ricorda che nessuna di queste cose dovrebbe definire il nostro valore.\n\nForse è anche per questo che, a quindici anni dalla sua uscita, continua a sembrare così fresca. Perché ci invita a fare una domanda che riguarda tutti, donne e uomini:\n\nQuanto di quello che inseguiamo lo desideriamo davvero... e quanto, invece, pensiamo di doverlo desiderare?\n\n🎧 Se avete qualche minuto, ascoltatela. Anche se non parlate francese, il suo messaggio arriva con una forza e una leggerezza davvero rare.",
+    "curiosity": "Zaz ha raccontato di aver scritto il brano riflettendo sul proprio percorso, lontano dai circuiti piu' patinati della musica francese.",
+    "quote": "Allons ensemble, découvrir ma liberté ",
+    "date": "2026-10-05"
+  },
+  {
+    "id": 10,
     "artist": "Patty Pravo",
     "title": "La bambola",
     "year": "1968",
@@ -211,7 +233,7 @@
     "date": "2026-08-24"
   },
   {
-    "id": 10,
+    "id": 11,
     "artist": "Lucio Battisti",
     "title": "Una donna per amico",
     "year": "1978",
@@ -234,7 +256,7 @@
     "date": ""
   },
   {
-    "id": 11,
+    "id": 12,
     "artist": "The Cure",
     "title": "Boy's Don't Cry",
     "year": "1979",
@@ -264,7 +286,7 @@
     "date": "2026-07-15"
   },
   {
-    "id": 12,
+    "id": 13,
     "artist": "Meredith Brooks",
     "title": "Bitch",
     "year": "1997",
@@ -289,7 +311,7 @@
     "date": "2026-08-31"
   },
   {
-    "id": 13,
+    "id": 14,
     "artist": "Levante",
     "title": "Tikibombom",
     "year": "2020",
@@ -314,7 +336,7 @@
     "date": "2026-09-07"
   },
   {
-    "id": 14,
+    "id": 15,
     "artist": "Metallica",
     "title": "The unforgiven",
     "year": "1991",
