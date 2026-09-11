@@ -277,6 +277,31 @@
   },
   {
     "id": 13,
+    "artist": "Mahmood",
+    "title": "Soldi",
+    "year": "2019",
+    "album": "Gioventu' bruciata",
+    "cover": "copertine/mahmood_soldi.png",
+    "spotify_code": "spotify_codes/mahmood_soldi_spotify_code.png",
+    "spotify_link": "https://open.spotify.com/intl-it/track/4szQkW1CDHqbRZGltXJdd3",
+    "youtube_link": "https://www.youtube.com/watch?v=22lISUXgSUw&pp=ygUFc29sZGk%3D",
+    "decade": "2010s",
+    "country": "Italia",
+    "genere": "Hip Hop / Rap",
+    "tags": [
+      "paternita'",
+      "maschilita'",
+      "identita' culturale",
+      "appartenenza",
+      "pop/urban"
+    ],
+    "content": "Nel 2019, una canzone vinse il Festival di Sanremo portando sul palco una storia familiare intima, una lingua che non tutti capivano e un'identita' impossibile da dividere in due meta' ordinate.\n\nNon chiedeva il permesso di essere abbastanza italiana. E non rinunciava a essere anche altro.\n\nOggi vi parlo di:\n\n🎧 **Soldi**  \n👤 **Mahmood**  \n📅 **2019**  \n💿 *Gioventu' bruciata*\n\nIl brano racconta una relazione difficile con il padre: promesse, distanza, affetto e delusioni che convivono nella stessa storia. I soldi non sono soltanto soldi: diventano il nome di qualcosa che manca, di una cura che non arriva nel modo in cui dovrebbe.\n\nMa dentro questa storia c'e' anche un'altra cosa importante: il modo in cui Mahmood sceglie di raccontarla.\n\n**Curiosita':** nel ritornello compare una frase in arabo:\n\n> *Waladi, waladi, habibi ta'aleena*\n\nSignifica, piu' o meno: “Figlio mio, figlio mio, amore mio, vieni da noi.”\n\nE' una frase tenera, ma nella canzone porta con se' anche tutta la complessita' di un rapporto irrisolto. E soprattutto non viene tradotta o spiegata: resta li', parte naturale del racconto.\n\n**Perche' ne parliamo su EquaVoce?** Perche' troppe volte chiediamo alle persone di rendere la propria identita' facile da capire. Di scegliere una sola lingua, una sola origine, un solo modo di appartenere. Come se essere italiani e avere radici altrove fosse una contraddizione da sciogliere.\n\nMa le identita' non sono un test a scelta multipla.\n\nNon dobbiamo tradurci continuamente per essere accolte e accolti. Non dobbiamo lasciare una parte di noi fuori dalla porta per risultare piu' familiari, piu' semplici, piu' rassicuranti per gli altri.\n\nIn fondo, e' un filo che avevamo gia' incontrato: *Bitch* ci invitava a non ridurre una persona a un'unica etichetta; *Tikibombom* raccontava la liberta' di non seguire il ritmo imposto dalla maggioranza; *Raise Your Glass* brindava a chi si e' sentito fuori misura almeno una volta.\n\n*Soldi* racconta la stessa storia da un altro punto di vista: quello dell'appartenenza culturale. Perche' il problema delle etichette e delle aspettative non riguarda soltanto il genere. Puo' riguardare le origini, il denaro, l'orientamento sessuale, il modo di parlare, di vestirsi o di stare al mondo.\n\nCambiano le esperienze, cambiano le ferite, ma la richiesta di fondo e' la stessa: poter essere riconosciute e riconosciuti senza dover dimostrare di appartenere alla categoria “giusta”. In questo, siamo tutte e tutti sulla stessa barca.\n\n🎧 Se la riascoltate, provate a fare attenzione a quel ritornello. Non serve capire ogni parola per riconoscere che appartiene alla canzone. Forse e' proprio questo il punto: l'inclusione non comincia quando tutto ci e' familiare, ma quando smettiamo di pretendere che lo diventi.",
+    "curiosity": "Nel ritornello Mahmood canta in arabo “Waladi, waladi, habibi ta'aleena”, traducibile come “Figlio mio, figlio mio, amore mio, vieni da noi”: una frase affettuosa e ambivalente nel racconto di un rapporto difficile con il padre.",
+    "quote": "È difficile stare al mondo quando perdi l’orgoglio.",
+    "date": ""
+  },
+  {
+    "id": 14,
     "artist": "Patty Pravo",
     "title": "La bambola",
     "year": "1968",
@@ -299,7 +324,7 @@
     "date": "2026-08-24"
   },
   {
-    "id": 14,
+    "id": 15,
     "artist": "Lucio Battisti",
     "title": "Una donna per amico",
     "year": "1978",
@@ -322,7 +347,7 @@
     "date": ""
   },
   {
-    "id": 15,
+    "id": 16,
     "artist": "The Cure",
     "title": "Boy's Don't Cry",
     "year": "1979",
@@ -352,7 +377,7 @@
     "date": "2026-07-15"
   },
   {
-    "id": 16,
+    "id": 17,
     "artist": "Meredith Brooks",
     "title": "Bitch",
     "year": "1997",
@@ -377,7 +402,7 @@
     "date": "2026-08-31"
   },
   {
-    "id": 17,
+    "id": 18,
     "artist": "Levante",
     "title": "Tikibombom",
     "year": "2020",
@@ -402,7 +427,7 @@
     "date": "2026-09-07"
   },
   {
-    "id": 18,
+    "id": 19,
     "artist": "Cesare Cremonini",
     "title": "Buon Viaggio (Share the Love)",
     "year": "2015",
@@ -423,7 +448,7 @@
     "date": "2026-07-31"
   },
   {
-    "id": 19,
+    "id": 20,
     "artist": "Metallica",
     "title": "The unforgiven",
     "year": "1991",
@@ -453,7 +478,7 @@
     "date": "2026-11-09"
   },
   {
-    "id": 20,
+    "id": 21,
     "artist": "P!nk",
     "title": "Raise Your Glass",
     "year": "2010",
@@ -477,15 +502,15 @@
     "date": ""
   },
   {
-    "id": 21,
+    "id": 22,
     "artist": "Spin Doctors",
     "title": "Two Princes",
     "year": "1991",
     "album": "Pocket Full of Kryptonite",
     "cover": "copertine/spin_doctors_two_princes.png",
     "spotify_code": "spotify_codes/spin_doctors_two_princes_spotify_code.png",
-    "spotify_link": "",
-    "youtube_link": "",
+    "spotify_link": "https://open.spotify.com/intl-it/track/4ePP9So5xRzspjLFVVbj90",
+    "youtube_link": "https://www.youtube.com/watch?v=wsdy_rct6uo&pp=ygULdHdvIHByaW5jZXM%3D",
     "decade": "1990s",
     "country": "Estero",
     "genere": "",
@@ -497,7 +522,7 @@
     ],
     "content": "Qualche sera fa, guardando il finale della prima stagione di *Elle* — la nuova serie che racconta l'adolescenza di Elle Woods, prima di *Legally Blonde* — mi sono ritrovato a riascoltare una canzone che conoscevo benissimo.\n\nUna di quelle che, appena parte, sembra riportarti immediatamente agli anni Novanta.\n\nMa questa volta ho ascoltato davvero le parole.\n\nOggi vi parlo di:\n\n🎧 **Two Princes**\n👤 **Spin Doctors**\n📅 **1991**\n💿 *Pocket Full of Kryptonite*\n\nLa storia, in apparenza, è semplice.\n\nDue principi si inginocchiano davanti a una ragazza. Uno ha diamanti in tasca, titoli, ricchezza e perfino l'approvazione del padre di lei. L'altro non ha un grande nome, né un futuro già scritto, ma sostiene di sapere che cosa significhi essere un principe e un amante.\n\nInsomma: due uomini, due promesse, una scelta.\n\n**Curiosità:** negli anni è circolata una teoria molto affascinante secondo cui la canzone sarebbe un'allegoria della Guerra fredda. Il principe con i diamanti rappresenterebbe gli Stati Uniti, quello che vuole comprarle razzi l'Unione Sovietica; la ragazza sarebbe invece un Paese conteso fra le due potenze.\n\nÈ una lettura suggestiva, ma sembra sia stata direttamente smentita dagli autori. E forse, a pensarci bene, il significato più interessante è molto più vicino di quanto immaginiamo.\n\nPerché nella canzone parlano tutti tranne lei.\n\nParlano i due principi.\nParla il padre, che approverebbe un matrimonio e ne disapproverebbe un altro.\nParla il narratore, che le chiede di scegliere lui.\n\nLei no.\n\nLa sua vita diventa una decisione fra due uomini: quello con il denaro e quello con l'amore. Ma nessuno le domanda che cosa desideri davvero. Se voglia sposarsi. Se voglia uno di loro. O se, semplicemente, abbia un progetto diverso per sé.\n\nForse è questo che rende *Two Princes* più interessante di quanto sembri.\n\nNon è soltanto una canzone su due pretendenti. È il ritratto di un immaginario che conosciamo bene: una donna al centro della storia, ma non necessariamente al centro delle decisioni.\n\nDue principi, una scelta.\n\nMa abbiamo mai sentito cosa vuole lei?\n\n🎧 Se la riascoltate, provate a fare attenzione non solo a ciò che dicono i due principi, ma soprattutto a ciò che manca. A volte una canzone racconta molto anche attraverso la voce che non ci lascia ascoltare.",
     "curiosity": "È circolata una teoria secondo cui il brano sarebbe un'allegoria della Guerra fredda, con i due principi come Stati Uniti e Unione Sovietica e la ragazza come Paese conteso. È una lettura suggestiva, ma sembra sia stata direttamente smentita dagli autori.",
-    "quote": "",
+    "quote": "Marry him or marry me",
     "date": "2026-09-21"
   }
 ]
