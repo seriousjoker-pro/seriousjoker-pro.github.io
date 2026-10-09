@@ -618,6 +618,30 @@
   },
   {
     "id": 27,
+    "artist": "Olivia Dean",
+    "title": "Man I Need",
+    "year": "2025",
+    "album": "The Art of Loving",
+    "cover": "copertine/olivia_dean_man_i_need.png",
+    "spotify_code": "spotify_codes/olivia_dean_man_i_need_spotify_code.png",
+    "spotify_link": "https://open.spotify.com/intl-it/track/1qbmS6ep2hbBRaEZFpn7BX",
+    "youtube_link": "https://www.youtube.com/watch?v=oIv_Y2RPQ_A",
+    "decade": "2020s",
+    "country": "Estero",
+    "genere": "",
+    "tags": [
+      "reciprocità",
+      "relazioni",
+      "desiderio",
+      "standard"
+    ],
+    "content": "Il desiderio femminile come pretesa di reciprocità: non un uomo qualsiasi, ma una persona capace di esserci davvero.\n\n**Curiosità:** Pubblicata nell'agosto 2025 come singolo dal secondo album The Art of Loving, è stata presentata come una canzone d'amore energica e luminosa.",
+    "curiosity": "Pubblicata nell'agosto 2025 come singolo dal secondo album The Art of Loving, è stata presentata come una canzone d'amore energica e luminosa.",
+    "quote": "Come be the man I need",
+    "date": ""
+  },
+  {
+    "id": 28,
     "artist": "P!nk",
     "title": "Raise Your Glass",
     "year": "2010",
@@ -641,7 +665,7 @@
     "date": "2026-11-30"
   },
   {
-    "id": 28,
+    "id": 29,
     "artist": "Spin Doctors",
     "title": "Two Princes",
     "year": "1991",
@@ -665,7 +689,7 @@
     "date": "2026-09-21"
   },
   {
-    "id": 29,
+    "id": 30,
     "artist": "Téléphone",
     "title": "Cendrillon",
     "year": "1982",
@@ -690,7 +714,7 @@
     "date": "2026-12-14"
   },
   {
-    "id": 30,
+    "id": 31,
     "artist": "Ornella Vanoni, Toquinho, Vinícius de Moraes",
     "title": "La voglia, la pazzia (Se ela quisesse)",
     "year": "1976",
@@ -714,7 +738,7 @@
     "date": "2026-12-21"
   },
   {
-    "id": 31,
+    "id": 32,
     "artist": "Sister Sledge",
     "title": "We Are Family",
     "year": "1979",
